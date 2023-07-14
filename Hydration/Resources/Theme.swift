@@ -10,5 +10,6 @@ import SwiftUI
 
 enum Theme {
     static let text = Color("text")
+    static let primary = Color("primary")
     static let background = Color("background")
 }

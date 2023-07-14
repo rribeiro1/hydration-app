@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct DismissButton: View {
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            dismiss()
+        } label: {
+            Image(systemName: "x.circle.fill")
+                .font(.title)
+                .bold()
+                .foregroundColor(Theme.text)
+                .opacity(0.3)
+        }
     }
 }
 

@@ -10,14 +10,22 @@ import SwiftUI
 struct InfoView: View {
     var body: some View {
         VStack(alignment: .center) {
-            Text("Info")
-                .font(.largeTitle)
-                .bold()
-                .padding(.top, 20)
-            
+            ZStack {
+                Text("Info")
+                    .font(.largeTitle)
+                    .bold()
+                
+                HStack {
+                    Spacer()
+                    DismissButton()
+                        .padding(.trailing, 20)
+                }
+            }
+            .padding(.top, 20)
+
             VStack(alignment: .center) {
                 Image(systemName: "drop.fill")
-                    .foregroundColor(Theme.background)
+                    .foregroundColor(Theme.text)
                     .font(.system(size: 80))
                 
                 Image(systemName: "ruler")
@@ -63,10 +71,7 @@ struct InfoView: View {
                 .font(.caption)
                 .bold()
         }
-        .frame(
-            maxHeight: .infinity,
-            alignment: .topLeading
-        )
+        .background(Theme.background)
     }
 }
 

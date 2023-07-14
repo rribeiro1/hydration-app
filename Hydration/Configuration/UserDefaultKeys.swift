@@ -9,6 +9,6 @@ import Foundation
 
 enum UserDefaultKeys {
     static let hapticsEnabled = "hapticsEnabled"
-    static let colorScheme = "colorScheme"
+    static let intakeGoal = "intakeGoal"
 }
 

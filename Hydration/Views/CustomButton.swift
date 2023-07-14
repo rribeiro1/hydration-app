@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct CustomButton: View {
+    var text: String
+    var systemImage: String
+    var action: () -> Void
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: action) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(Theme.primary)
+
+                HStack {
+                    Text(text)
+                        .foregroundColor(.white)
+                    
+                    Image(systemName: systemImage)
+                        .foregroundColor(.white)
+                }
+            }
+        }
     }
 }
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton()
+        CustomButton(text: "Add Intake", systemImage: "plus.app") {}
     }
 }
