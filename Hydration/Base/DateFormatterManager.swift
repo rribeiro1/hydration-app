@@ -15,12 +15,13 @@ final class DateFormatterManager {
     init() {}
 
     func fullDate(date: Date) -> String {
-        dateFormatter.dateFormat = "MMM d, yyyy"
+        dateFormatter.dateStyle = .medium
         return dateFormatter.string(from: date)
     }
 
     func time(date: Date) -> String {
-        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
         return dateFormatter.string(from: date)
     }
 }
