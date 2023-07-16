@@ -11,13 +11,13 @@ struct AddIntakeView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State var selectedIntakeType: IntakeType = .water
-    @State var selectedQuantity: Int = 250
+    @State var selectedAmmount: Int = 250
 
     private let items = stride(from: 100, through: 2001, by: 50).map { $0 }
-    private let onSelectQuantity: (Intake) -> Void
+    private let onSelectAmmount: (Intake) -> Void
 
-    public init(onSelectQuantity: @escaping (Intake) -> Void) {
-        self.onSelectQuantity = onSelectQuantity
+    public init(onSelectAmmount: @escaping (Intake) -> Void) {
+        self.onSelectAmmount = onSelectAmmount
     }
 
     var body: some View {
@@ -37,7 +37,7 @@ struct AddIntakeView: View {
                 .foregroundColor(selectedIntakeType.color)
                 .font(.system(size: 40))
 
-            Picker("Select a quantity", selection: $selectedQuantity) {
+            Picker("Select an ammount", selection: $selectedAmmount) {
                 ForEach(items, id: \.self) { item in
                     Text("\(item) mL")
                 }
@@ -50,7 +50,7 @@ struct AddIntakeView: View {
                 action: {
                     haptic()
                     dismiss()
-                    onSelectQuantity(Intake(quantity: selectedQuantity, type: selectedIntakeType))
+                    onSelectAmmount(Intake(ammount: selectedAmmount, type: selectedIntakeType))
                 }
             )
             .frame(height: 60)

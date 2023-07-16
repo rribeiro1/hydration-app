@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct HydrationApp: App {
+    @AppStorage(UserDefaultKeys.colorScheme)
+    private var selectedTheme: AppTheme = .system
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HydrationView()
+                .preferredColorScheme(selectedTheme.color)
         }
     }
 }

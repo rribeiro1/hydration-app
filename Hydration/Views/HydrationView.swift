@@ -93,7 +93,7 @@ struct HydrationView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct HydrationView_Previews: PreviewProvider {
     static var previews: some View {
         HydrationView()
     }

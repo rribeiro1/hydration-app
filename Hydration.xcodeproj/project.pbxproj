@@ -10,16 +10,15 @@
 		9E0BFB522A60803900AAAD93 /* HydrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB512A60803900AAAD93 /* HydrationViewModel.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
-		9E2F2DB82A5D2A3D009AF30C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB72A5D2A3D009AF30C /* ContentView.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
 		9E2F2DBD2A5D2A3F009AF30C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DBC2A5D2A3F009AF30C /* Preview Assets.xcassets */; };
 		9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC42A5D2A5F009AF30C /* Theme.swift */; };
 		9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */; };
-		9E2F2DCB2A5D2A5F009AF30C /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC72A5D2A5F009AF30C /* MenuBarView.swift */; };
-		9E2F2DCC2A5D2A5F009AF30C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC82A5D2A5F009AF30C /* HomeView.swift */; };
+		9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */; };
 		9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */; };
 		9E2F2DD12A5D2C69009AF30C /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DD02A5D2C69009AF30C /* HapticsManager.swift */; };
 		9E2F2DD32A5D2C89009AF30C /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */; };
+		9E57DE7B2A648B5D005539F0 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E57DE7A2A648B5D005539F0 /* AppTheme.swift */; };
 		9E7A34F22A5F33120045777C /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F12A5F33120045777C /* ProgressBar.swift */; };
 		9E7A34F52A5F45200045777C /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F42A5F45200045777C /* Intake.swift */; };
 		9E7A34F72A5F453D0045777C /* IntakeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F62A5F453D0045777C /* IntakeType.swift */; };
@@ -34,16 +33,15 @@
 		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
-		9E2F2DB72A5D2A3D009AF30C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2F2DBC2A5D2A3F009AF30C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E2F2DC42A5D2A5F009AF30C /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		9E2F2DC72A5D2A5F009AF30C /* MenuBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
-		9E2F2DC82A5D2A5F009AF30C /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrationView.swift; sourceTree = "<group>"; };
 		9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9E2F2DD02A5D2C69009AF30C /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		9E57DE7A2A648B5D005539F0 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		9E7A34F12A5F33120045777C /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		9E7A34F42A5F45200045777C /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 		9E7A34F62A5F453D0045777C /* IntakeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeType.swift; sourceTree = "<group>"; };
@@ -91,13 +89,12 @@
 		9E2F2DB42A5D2A3D009AF30C /* Hydration */ = {
 			isa = PBXGroup;
 			children = (
+				9E2F2DCF2A5D2C57009AF30C /* Base */,
 				9E7A34F32A5F45120045777C /* Models */,
 				9E2F2DC52A5D2A5F009AF30C /* Views */,
 				9E0BFB502A60800F00AAAD93 /* ViewModels */,
-				9E2F2DCF2A5D2C57009AF30C /* Configuration */,
 				9E2F2DC32A5D2A5F009AF30C /* Resources */,
 				9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */,
-				9E2F2DB72A5D2A3D009AF30C /* ContentView.swift */,
 				9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */,
 				9E2F2DBB2A5D2A3F009AF30C /* Preview Content */,
 			);
@@ -123,11 +120,10 @@
 		9E2F2DC52A5D2A5F009AF30C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */,
-				9E2F2DC72A5D2A5F009AF30C /* MenuBarView.swift */,
-				9E2F2DC82A5D2A5F009AF30C /* HomeView.swift */,
-				9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */,
+				9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */,
 				9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */,
+				9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */,
+				9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */,
 				9EBA46472A5DD90A00D8D44E /* CustomButton.swift */,
 				9E7A34F12A5F33120045777C /* ProgressBar.swift */,
 				9E7A34F82A5F49230045777C /* IntakeRowView.swift */,
@@ -136,14 +132,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9E2F2DCF2A5D2C57009AF30C /* Configuration */ = {
+		9E2F2DCF2A5D2C57009AF30C /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				9E2F2DD02A5D2C69009AF30C /* HapticsManager.swift */,
 				9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */,
 				9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */,
+				9E57DE7A2A648B5D005539F0 /* AppTheme.swift */,
 			);
-			path = Configuration;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		9E7A34F32A5F45120045777C /* Models */ = {
@@ -225,15 +222,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E57DE7B2A648B5D005539F0 /* AppTheme.swift in Sources */,
 				9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */,
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9E0BFB522A60803900AAAD93 /* HydrationViewModel.swift in Sources */,
 				9E7A34F52A5F45200045777C /* Intake.swift in Sources */,
-				9E2F2DB82A5D2A3D009AF30C /* ContentView.swift in Sources */,
 				9EC0D6872A61290A002FEE06 /* DismissButton.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* AddIntakeView.swift in Sources */,
-				9E2F2DCC2A5D2A5F009AF30C /* HomeView.swift in Sources */,
+				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
 				9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */,
 				9E2F2DD32A5D2C89009AF30C /* UserDefaultKeys.swift in Sources */,
 				9EBA46482A5DD90B00D8D44E /* CustomButton.swift in Sources */,
@@ -242,7 +239,6 @@
 				9E2F2DD12A5D2C69009AF30C /* HapticsManager.swift in Sources */,
 				9E7A34F72A5F453D0045777C /* IntakeType.swift in Sources */,
 				9E7A34F22A5F33120045777C /* ProgressBar.swift in Sources */,
-				9E2F2DCB2A5D2A5F009AF30C /* MenuBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ final class DateFormatterManager {
 
     func fullDate(date: Date) -> String {
         dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
         return dateFormatter.string(from: date)
     }
 

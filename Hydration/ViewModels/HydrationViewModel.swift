@@ -8,25 +8,29 @@
 import SwiftUI
 
 class HydrationViewModel: ObservableObject {
-    @Published private(set) var intakes: [Intake] = []
-    @Published private(set) var intakesQuantity: Int = 0
     @Published var progress: Float = 0.0
-
-    @AppStorage(UserDefaultKeys.intakeGoal)
-    var intakeGoal: Int = 500
+    @Published private(set) var intakeAmmount: Int = 0
+    @Published var goal: Int = 3000 {
+        didSet {
+            updateProgress()
+        }
+    }
+    @Published private(set) var intakes: [Intake] = [] {
+        didSet {
+            updateProgress()
+        }
+    }
 
     func add(_ intake: Intake) {
         intakes.append(intake)
-        refreshProgres()
     }
 
     func delete(at index: IndexSet) {
         intakes.remove(atOffsets: index)
-        refreshProgres()
     }
 
-    func refreshProgres() {
-        intakesQuantity = intakes.reduce(0, { $0 + $1.quantity })
-        progress = Float(intakesQuantity) / Float(intakeGoal)
+    func updateProgress() {
+        intakeAmmount = intakes.reduce(0, { $0 + $1.ammount })
+        progress = Float(intakeAmmount) / Float(goal)
     }
 }

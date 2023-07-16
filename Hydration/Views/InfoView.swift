@@ -12,7 +12,7 @@ struct InfoView: View {
         VStack(alignment: .center) {
             ZStack {
                 Text("Info")
-                    .font(.largeTitle)
+                    .font(.title)
                     .bold()
                 
                 HStack {
@@ -24,7 +24,8 @@ struct InfoView: View {
             .padding(.top, 20)
 
             VStack(alignment: .center) {
-                Image(systemName: "drop.fill")
+                Image(systemName: "drop")
+                    .symbolVariant(.fill)
                     .foregroundColor(Theme.text)
                     .font(.system(size: 80))
                 
@@ -51,11 +52,13 @@ struct InfoView: View {
                     .foregroundColor(.orange)
                     .font(.system(size: 50))
                 
-                Image(systemName: "cloud.sun.fill")
+                Image(systemName: "cloud.sun")
+                    .symbolVariant(.fill)
                     .foregroundColor(.green)
                     .font(.system(size: 40))
                 
-                Image(systemName: "cross.circle.fill")
+                Image(systemName: "cross.circle")
+                    .symbolVariant(.fill)
                     .foregroundColor(.red)
                     .font(.system(size: 40))
             }
@@ -71,7 +74,7 @@ struct InfoView: View {
                 .font(.caption)
                 .bold()
         }
-        .background(Theme.background)
+        .background(Theme.systemBackground)
     }
 }
 

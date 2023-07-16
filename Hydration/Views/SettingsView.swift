@@ -7,24 +7,22 @@
 
 import SwiftUI
 
+
+
 struct SettingsView: View {
+    @Binding var goal: Int
 
     @AppStorage(UserDefaultKeys.hapticsEnabled)
     private var isHapticsEnable: Bool = true
 
-    @AppStorage(UserDefaultKeys.intakeGoal)
-    private var intakeGoal: Int = 500
-
-    @EnvironmentObject
-    private var vm: HydrationViewModel
-
-    private var goals = stride(from: 500, through: 4001, by: 500).map { $0 }
+    @AppStorage(UserDefaultKeys.colorScheme)
+    private var selectedTheme: AppTheme = .system
 
     var body: some View {
         VStack {
             ZStack {
                 Text("Settings")
-                    .font(.largeTitle)
+                    .font(.title)
                     .bold()
                 
                 HStack {
@@ -41,6 +39,20 @@ struct SettingsView: View {
                     footer: Text("Haptic feedback will be automatically disabled if your device is low on battery.")
                 ) {
                     Label {
+                        Picker("Color Scheme", selection: $selectedTheme) {
+                            ForEach(AppTheme.allCases, id: \.self) { theme in
+                                Text(theme.rawValue.capitalized)
+                                    .tag(theme)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                    } icon: {
+                        Image(systemName: "sun.max")
+                            .symbolVariant(.fill)
+                            .foregroundColor(Theme.text)
+                    }
+                    
+                    Label {
                         Toggle("Haptic Feedback", isOn: $isHapticsEnable)
                     } icon: {
                         Image(systemName: "water.waves")
@@ -52,19 +64,16 @@ struct SettingsView: View {
                     header: Text("Goals")
                 ) {
                     Label {
-                        Picker("Set your goal", selection: $intakeGoal) {
-                            ForEach(goals, id: \.self) { goal in
+                        Picker("Set your goal", selection: $goal) {
+                            ForEach(stride(from: 500, through: 4001, by: 500).map { $0 }, id: \.self) { goal in
                                 Text("\(goal) mL")
                                     .foregroundColor(Theme.text)
                             }
                         }
                         .pickerStyle(.menu)
-                        .onChange(
-                            of: intakeGoal,
-                            perform: { _ in vm.refreshProgres()}
-                        )
                     } icon: {
-                        Image(systemName: "drop.fill")
+                        Image(systemName: "drop")
+                            .symbolVariant(.fill)
                             .foregroundColor(Theme.text)
                     }
                 }
@@ -77,7 +86,8 @@ struct SettingsView: View {
                         Text("Log to Health")
                             .foregroundColor(Color.orange)
                     } icon: {
-                        Image(systemName: "heart.fill")
+                        Image(systemName: "heart")
+                            .symbolVariant(.fill)
                             .foregroundColor(Color.orange)
                     }
                 }
@@ -85,22 +95,21 @@ struct SettingsView: View {
             
             HStack(spacing: 4) {
                 Text("Made with")
-                Image(systemName: "heart.fill")
+                Image(systemName: "heart")
+                    .symbolVariant(.fill)
                     .foregroundColor(.red)
                 Text("in Berlin")
             }
             .font(.caption)
             .foregroundColor(.gray)
-
         }
-            .background(Theme.background)
+        .preferredColorScheme(selectedTheme.color)
+        .background(Theme.systemBackground)
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            SettingsView()
-        }
+        SettingsView(goal: .constant(3000))
     }
 }

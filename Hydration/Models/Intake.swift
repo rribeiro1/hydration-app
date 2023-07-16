@@ -9,7 +9,7 @@ import Foundation
 
 struct Intake: Identifiable {
     var id: UUID = UUID()
-    var quantity: Int
+    var ammount: Int
     var type: IntakeType
     var time: Date = Date()
 }

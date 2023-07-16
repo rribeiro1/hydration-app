@@ -14,15 +14,17 @@ struct DismissButton: View {
         Button {
             dismiss()
         } label: {
-            Image(systemName: "x.circle.fill")
-                .font(.title)
-                .bold()
+            Image(systemName: "x.circle")
+                .symbolVariant(.fill)
+                .font(.system(size: 25))
                 .foregroundColor(Theme.text)
-                .opacity(0.3)
+                .opacity(0.2)
         }
     }
 }
 
-#Preview {
-    DismissButton()
+struct DismissButton_Previews: PreviewProvider {
+    static var previews: some View {
+        DismissButton()
+    }
 }
