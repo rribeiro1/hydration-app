@@ -16,17 +16,17 @@ struct IntakeRowView: View {
             Text("\(intake.ammount) mL")
                 .bold()
             Spacer()
-            Text(intake.type.rawValue.capitalized)
+            Text(intake.type)
             Image(systemName: "drop.fill")
-                .foregroundColor(intake.type.color)
+                .foregroundColor(.blue)
             Text(DateFormatterManager.shared.time(date: intake.time))
         }
         .padding(.vertical, 10)
     }
 }
 
-struct IntakeRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        IntakeRowView(intake: Intake(ammount: 100, type: .water, time: Date()))
-    }
-}
+//struct IntakeRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IntakeRowView(intake: Intake(ammount: 100, type: .water, time: Date()))
+//    }
+//}

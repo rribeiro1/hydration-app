@@ -9,16 +9,9 @@ import SwiftUI
 
 struct AddIntakeView: View {
     @Environment(\.dismiss) private var dismiss
-
-    @State var selectedIntakeType: IntakeType = .water
-    @State var selectedAmmount: Int = 250
+    @ObservedObject var vm: EditIntakeViewModel
 
     private let items = stride(from: 100, through: 2001, by: 50).map { $0 }
-    private let onSelectAmmount: (Intake) -> Void
-
-    public init(onSelectAmmount: @escaping (Intake) -> Void) {
-        self.onSelectAmmount = onSelectAmmount
-    }
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -26,18 +19,18 @@ struct AddIntakeView: View {
                 .font(.title)
                 .bold()
 
-            Picker("Select a quantity", selection: $selectedIntakeType) {
-                ForEach(IntakeType.allCases, id: \.self) { item in
-                    Text(item.rawValue.capitalized)
+            Picker("Select a quantity", selection: $vm.intake.type) {
+                ForEach(["Water", "Coffee", "Juice", "Other"], id: \.self) { item in
+                    Text(item)
                 }
             }
             .pickerStyle(.segmented)
 
             Image(systemName: "drop.fill")
-                .foregroundColor(selectedIntakeType.color)
+                .foregroundColor(.blue)
                 .font(.system(size: 40))
 
-            Picker("Select an ammount", selection: $selectedAmmount) {
+            Picker("Select an ammount", selection: $vm.intake.ammount) {
                 ForEach(items, id: \.self) { item in
                     Text("\(item) mL")
                 }
@@ -49,8 +42,12 @@ struct AddIntakeView: View {
                 systemImage: "square.and.arrow.down",
                 action: {
                     haptic()
-                    dismiss()
-                    onSelectAmmount(Intake(ammount: selectedAmmount, type: selectedIntakeType))
+                    do {
+                        try vm.save()
+                        dismiss()
+                    } catch {
+                        print(error)
+                    }
                 }
             )
             .frame(height: 60)
@@ -62,6 +59,6 @@ struct AddIntakeView: View {
 
 struct AddIntakeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddIntakeView { quantity in print(quantity) }
+        AddIntakeView(vm: .init(provider: .shared))
     }
 }

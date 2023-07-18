@@ -16,6 +16,7 @@ struct HydrationApp: App {
         WindowGroup {
             HydrationView()
                 .preferredColorScheme(selectedTheme.color)
+                .environment(\.managedObjectContext, IntakesProvider.shared.viewContext)
         }
     }
 }

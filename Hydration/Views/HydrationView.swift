@@ -13,6 +13,9 @@ struct HydrationView: View {
     @State private var showNewIntake: Bool = false
 
     @StateObject private var vm = HydrationViewModel()
+    var provider = IntakesProvider.shared
+    
+    @FetchRequest(fetchRequest: Intake.all()) private var intakes
 
     var body: some View {
         VStack {
@@ -37,12 +40,12 @@ struct HydrationView: View {
                 Text("\(vm.goal) mL")
             }
             
-            if !vm.intakes.isEmpty {
+            if !intakes.isEmpty {
                 List {
-                    ForEach(vm.intakes) { intake in
+                    ForEach(intakes) { intake in
                         IntakeRowView(intake: intake)
                     }
-                    .onDelete(perform: vm.delete)
+                    //.onDelete(perform: vm.delete)
                 }
             }
 
@@ -69,7 +72,7 @@ struct HydrationView: View {
                     showNewIntake.toggle()
                 }
                 .sheet(isPresented: $showNewIntake) {
-                    AddIntakeView { vm.add($0) }
+                    AddIntakeView(vm: .init(provider: provider))
                     .presentationDetents([.medium])
                 }
 
