@@ -21,14 +21,6 @@ class HydrationViewModel: ObservableObject {
         }
     }
 
-    func add(_ intake: Intake) {
-        intakes.append(intake)
-    }
-
-    func delete(at index: IndexSet) {
-        intakes.remove(atOffsets: index)
-    }
-
     func updateProgress() {
         intakeAmmount = intakes.reduce(0, { $0 + $1.ammount })
         progress = Float(intakeAmmount) / Float(goal)

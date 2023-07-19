@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 enum IntakeType : String, CaseIterable {
-    case water
-    case coffee
-    case juice
-    case other
+    case water = "Water"
+    case coffee = "Coffee"
+    case juice = "Juice"
+    case other = "Other"
     
     var color: Color {
         switch self {

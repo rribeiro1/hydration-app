@@ -17,22 +17,11 @@ struct SettingsView: View {
 
     @AppStorage(UserDefaultKeys.colorScheme)
     private var selectedTheme: AppTheme = .system
+    
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack {
-            ZStack {
-                Text("Settings")
-                    .font(.title)
-                    .bold()
-                
-                HStack {
-                    Spacer()
-                    DismissButton()
-                        .padding(.trailing, 20)
-                }
-            }
-            .padding(.top, 20)
-            
             Form {
                 Section(
                     header: Text("App"),
@@ -103,6 +92,14 @@ struct SettingsView: View {
             .font(.caption)
             .foregroundColor(.gray)
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Done") {
+                    dismiss()
+                }
+            }
+        }
+        .navigationTitle("Settings")
         .preferredColorScheme(selectedTheme.color)
         .background(Theme.systemBackground)
     }
@@ -110,6 +107,8 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(goal: .constant(3000))
+        NavigationStack {
+            SettingsView(goal: .constant(3000))
+        }
     }
 }

@@ -19,16 +19,20 @@ struct AddIntakeView: View {
                 .font(.title)
                 .bold()
 
-            Picker("Select a quantity", selection: $vm.intake.type) {
-                ForEach(["Water", "Coffee", "Juice", "Other"], id: \.self) { item in
-                    Text(item)
+            HStack {
+                Picker("Select a quantity", selection: $vm.intake.type) {
+                    ForEach(["Water", "Coffee", "Juice", "Other"], id: \.self) { item in
+                        Text(item)
+                    }
                 }
-            }
-            .pickerStyle(.segmented)
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
 
-            Image(systemName: "drop.fill")
-                .foregroundColor(.blue)
-                .font(.system(size: 40))
+                Image(systemName: "drop.fill")
+                    .foregroundColor(vm.intake.intakeType.color)
+                    .font(.system(size: 40))
+            }
+
 
             Picker("Select an ammount", selection: $vm.intake.ammount) {
                 ForEach(items, id: \.self) { item in
@@ -50,6 +54,13 @@ struct AddIntakeView: View {
                     }
                 }
             )
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        dismiss()
+                    }
+                }
+            }
             .frame(height: 60)
             .padding(.horizontal, 60)
         }
@@ -59,6 +70,8 @@ struct AddIntakeView: View {
 
 struct AddIntakeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddIntakeView(vm: .init(provider: .shared))
+        NavigationStack {
+            AddIntakeView(vm: .init(provider: .shared))
+        }
     }
 }

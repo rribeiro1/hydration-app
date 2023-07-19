@@ -18,15 +18,15 @@ struct IntakeRowView: View {
             Spacer()
             Text(intake.type)
             Image(systemName: "drop.fill")
-                .foregroundColor(.blue)
+                .foregroundColor(intake.intakeType.color)
             Text(DateFormatterManager.shared.time(date: intake.time))
         }
         .padding(.vertical, 10)
     }
 }
 
-//struct IntakeRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        IntakeRowView(intake: Intake(ammount: 100, type: .water, time: Date()))
-//    }
-//}
+struct IntakeRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        IntakeRowView(intake: .preview())
+    }
+}

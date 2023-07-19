@@ -8,21 +8,10 @@
 import SwiftUI
 
 struct InfoView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         VStack(alignment: .center) {
-            ZStack {
-                Text("Info")
-                    .font(.title)
-                    .bold()
-                
-                HStack {
-                    Spacer()
-                    DismissButton()
-                        .padding(.trailing, 20)
-                }
-            }
-            .padding(.top, 20)
-
             VStack(alignment: .center) {
                 Image(systemName: "drop")
                     .symbolVariant(.fill)
@@ -74,12 +63,22 @@ struct InfoView: View {
                 .font(.caption)
                 .bold()
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Done") {
+                    dismiss()
+                }
+            }
+        }
+        .navigationTitle("Info")
         .background(Theme.systemBackground)
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        NavigationStack {
+            InfoView()
+        }
     }
 }

@@ -28,7 +28,6 @@
 		9E7A34F92A5F49230045777C /* IntakeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F82A5F49230045777C /* IntakeRowView.swift */; };
 		9EBA46462A5DD62500D8D44E /* AddIntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */; };
 		9EBA46482A5DD90B00D8D44E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBA46472A5DD90A00D8D44E /* CustomButton.swift */; };
-		9EC0D6872A61290A002FEE06 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC0D6862A61290A002FEE06 /* DismissButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +53,6 @@
 		9E7A34F82A5F49230045777C /* IntakeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRowView.swift; sourceTree = "<group>"; };
 		9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIntakeView.swift; sourceTree = "<group>"; };
 		9EBA46472A5DD90A00D8D44E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		9EC0D6862A61290A002FEE06 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +158,6 @@
 				9EBA46472A5DD90A00D8D44E /* CustomButton.swift */,
 				9E7A34F12A5F33120045777C /* ProgressBar.swift */,
 				9E7A34F82A5F49230045777C /* IntakeRowView.swift */,
-				9EC0D6862A61290A002FEE06 /* DismissButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 				535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9E0BFB522A60803900AAAD93 /* HydrationViewModel.swift in Sources */,
-				9EC0D6872A61290A002FEE06 /* DismissButton.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* AddIntakeView.swift in Sources */,
 				5350335D2A666A6100579966 /* EditIntakeViewModel.swift in Sources */,
 				535033602A666B2D00579966 /* IntakesProvider.swift in Sources */,
