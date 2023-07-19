@@ -71,7 +71,9 @@ struct AddIntakeView: View {
 struct AddIntakeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddIntakeView(vm: .init(provider: .shared))
+            let preview = IntakesProvider.shared
+            AddIntakeView(vm: .init(provider: preview))
+                .environment(\.managedObjectContext, preview.viewContext)
         }
     }
 }

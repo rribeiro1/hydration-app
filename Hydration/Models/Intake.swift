@@ -57,7 +57,7 @@ extension Intake {
         for _ in 0..<count {
             let intake = Intake(context: context)
             intake.ammount = 300
-            intake.type = IntakeType.coffee.rawValue
+            intake.type = IntakeType.allCases.randomElement()!.rawValue
             intake.time = Date()
             intakes.append(intake)
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */; };
 		5350335D2A666A6100579966 /* EditIntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335C2A666A6100579966 /* EditIntakeViewModel.swift */; };
 		535033602A666B2D00579966 /* IntakesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* IntakesProvider.swift */; };
 		535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyIntakesView.swift; sourceTree = "<group>"; };
 		5350335C2A666A6100579966 /* EditIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIntakeViewModel.swift; sourceTree = "<group>"; };
 		5350335F2A666B2D00579966 /* IntakesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakesProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				9EBA46472A5DD90A00D8D44E /* CustomButton.swift */,
 				9E7A34F12A5F33120045777C /* ProgressBar.swift */,
 				9E7A34F82A5F49230045777C /* IntakeRowView.swift */,
+				5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				9EBA46462A5DD62500D8D44E /* AddIntakeView.swift in Sources */,
 				5350335D2A666A6100579966 /* EditIntakeViewModel.swift in Sources */,
 				535033602A666B2D00579966 /* IntakesProvider.swift in Sources */,
+				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
 				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
 				9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */,
 				9E2F2DD32A5D2C89009AF30C /* UserDefaultKeys.swift in Sources */,
