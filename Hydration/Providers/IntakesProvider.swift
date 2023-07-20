@@ -36,6 +36,27 @@ final class IntakesProvider {
             }
         }
     }
+    
+    func exists(_ intake: Intake, in context: NSManagedObjectContext) -> Intake? {
+        try? context.existingObject(with: intake.objectID) as? Intake
+    }
+    
+    func delete(_ intake: Intake, in context: NSManagedObjectContext) throws {
+        if let existingIntake = exists(intake, in: context) {
+            context.delete(existingIntake)
+            Task(priority: .background) {
+                try await context.perform {
+                    try context.save()
+                }
+            }
+        }
+    }
+    
+    func persist(in context: NSManagedObjectContext) throws {
+        if context.hasChanges {
+            try context.save()
+        }
+    }
 }
 
 extension EnvironmentValues {

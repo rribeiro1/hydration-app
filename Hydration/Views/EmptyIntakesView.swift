@@ -10,10 +10,9 @@ import SwiftUI
 struct EmptyIntakesView: View {
     var body: some View {
         VStack {
-            Image("drink")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 150)
+            Image(systemName: "takeoutbag.and.cup.and.straw")
+                .font(.system(size: 40))
+                .padding(.vertical, 10)
             Text("No water consumption today yet!")
             Text("Drink water and add it here")
             Image(systemName: "arrow.down")

@@ -33,6 +33,10 @@ final class Intake: NSManagedObject, Identifiable {
         setPrimitiveValue(IntakeType.water.rawValue, forKey: "type")
         setPrimitiveValue(250, forKey: "ammount")
     }
+
+    static func empty(context: NSManagedObjectContext = IntakesProvider.shared.viewContext) -> Intake {
+        return Intake(context: context)
+    }
 }
 
 extension Intake {
@@ -67,9 +71,5 @@ extension Intake {
     
     static func preview(context: NSManagedObjectContext = IntakesProvider.shared.viewContext) -> Intake {
         return makePreview(count: 1, in: context)[0]
-    }
-    
-    static func empty(context: NSManagedObjectContext = IntakesProvider.shared.viewContext) -> Intake {
-        return Intake(context: context)
     }
 }

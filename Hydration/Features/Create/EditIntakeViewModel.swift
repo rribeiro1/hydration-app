@@ -11,12 +11,14 @@ import CoreData
 final class EditIntakeViewModel: ObservableObject {
     @Published var intake: Intake
     
+    private let provider: IntakesProvider
     private let context: NSManagedObjectContext
     
     init(provider: IntakesProvider, intake: Intake? = nil) {
+        self.provider = provider
         self.context = provider.newContext
         if let intake,
-           let existingIntakeCopy = try? context.existingObject(with: intake.objectID) as? Intake {
+           let existingIntakeCopy = provider.exists(intake, in: context) {
             self.intake = existingIntakeCopy
         } else {
             self.intake = Intake(context: self.context)
@@ -24,8 +26,6 @@ final class EditIntakeViewModel: ObservableObject {
     }
     
     func save() throws {
-        if context.hasChanges {
-            try context.save()
-        }
+        try provider.persist(in: context)
     }
 }
