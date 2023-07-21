@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class EditIntakeViewModel: ObservableObject {
+final class CreateIntakeViewModel: ObservableObject {
     @Published var intake: Intake
     
     private let provider: IntakesProvider

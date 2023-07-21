@@ -99,7 +99,7 @@ struct HydrationView: View {
                     }
                     .sheet(item: $intakeToEdit, onDismiss: { intakeToEdit = nil }, content: { intake in
                         NavigationStack {
-                            AddIntakeView(vm: .init(provider: provider, intake: intake))
+                            CreateIntakeView(vm: .init(provider: provider, intake: intake))
                         }
                         .presentationDetents([.medium])
                     })

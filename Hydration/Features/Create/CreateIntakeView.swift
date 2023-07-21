@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AddIntakeView: View {
+struct CreateIntakeView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var vm: EditIntakeViewModel
+    @ObservedObject var vm: CreateIntakeViewModel
 
     private let items = stride(from: 100, through: 2001, by: 50).map { $0 }
 
@@ -68,11 +68,11 @@ struct AddIntakeView: View {
     }
 }
 
-struct AddIntakeView_Previews: PreviewProvider {
+struct CreateIntakeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             let preview = IntakesProvider.shared
-            AddIntakeView(vm: .init(provider: preview))
+            CreateIntakeView(vm: .init(provider: preview))
                 .environment(\.managedObjectContext, preview.viewContext)
         }
     }
