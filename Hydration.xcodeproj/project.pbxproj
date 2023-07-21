@@ -12,7 +12,6 @@
 		535033602A666B2D00579966 /* IntakesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* IntakesProvider.swift */; };
 		535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
-		9E0BFB522A60803900AAAD93 /* HydrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB512A60803900AAAD93 /* HydrationViewModel.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
@@ -33,11 +32,10 @@
 
 /* Begin PBXFileReference section */
 		5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyIntakesView.swift; sourceTree = "<group>"; };
-		5350335C2A666A6100579966 /* EditIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIntakeViewModel.swift; sourceTree = "<group>"; };
+		5350335C2A666A6100579966 /* EditIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditIntakeViewModel.swift; path = ../Features/Create/EditIntakeViewModel.swift; sourceTree = "<group>"; };
 		5350335F2A666B2D00579966 /* IntakesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakesProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
-		9E0BFB512A60803900AAAD93 /* HydrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationViewModel.swift; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
@@ -53,7 +51,7 @@
 		9E7A34F12A5F33120045777C /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		9E7A34F62A5F453D0045777C /* IntakeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeType.swift; sourceTree = "<group>"; };
 		9E7A34F82A5F49230045777C /* IntakeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRowView.swift; sourceTree = "<group>"; };
-		9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIntakeView.swift; sourceTree = "<group>"; };
+		9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddIntakeView.swift; path = ../Features/Create/AddIntakeView.swift; sourceTree = "<group>"; };
 		9EBA46472A5DD90A00D8D44E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,21 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5350335A2A666A3800579966 /* Features */ = {
+		534953722A6AB4CF0031BC92 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				5350335B2A666A4400579966 /* Create */,
+				535033652A666D0200579966 /* Intake.swift */,
+				9E7A34F62A5F453D0045777C /* IntakeType.swift */,
+				535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */,
 			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		5350335B2A666A4400579966 /* Create */ = {
-			isa = PBXGroup;
-			children = (
-				9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */,
-				5350335C2A666A6100579966 /* EditIntakeViewModel.swift */,
-			);
-			path = Create;
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		5350335E2A666B1700579966 /* Providers */ = {
@@ -91,14 +82,6 @@
 				5350335F2A666B2D00579966 /* IntakesProvider.swift */,
 			);
 			path = Providers;
-			sourceTree = "<group>";
-		};
-		9E0BFB502A60800F00AAAD93 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				9E0BFB512A60803900AAAD93 /* HydrationViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9E2F2DA92A5D2A3D009AF30C = {
@@ -121,13 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				5350335E2A666B1700579966 /* Providers */,
-				9E2F2DCF2A5D2C57009AF30C /* Base */,
-				5350335A2A666A3800579966 /* Features */,
-				9E7A34F32A5F45120045777C /* Models */,
+				9E2F2DCF2A5D2C57009AF30C /* Helpers */,
 				9E2F2DC52A5D2A5F009AF30C /* Views */,
-				9E0BFB502A60800F00AAAD93 /* ViewModels */,
-				9E2F2DC32A5D2A5F009AF30C /* Resources */,
-				535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */,
+				534953722A6AB4CF0031BC92 /* DataModels */,
 				9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */,
 				9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */,
 				9E2F2DBB2A5D2A3F009AF30C /* Preview Content */,
@@ -143,17 +122,11 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9E2F2DC32A5D2A5F009AF30C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9E2F2DC42A5D2A5F009AF30C /* Theme.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		9E2F2DC52A5D2A5F009AF30C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9EBA46452A5DD62500D8D44E /* AddIntakeView.swift */,
+				5350335C2A666A6100579966 /* EditIntakeViewModel.swift */,
 				9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */,
 				9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */,
 				9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */,
@@ -165,24 +138,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9E2F2DCF2A5D2C57009AF30C /* Base */ = {
+		9E2F2DCF2A5D2C57009AF30C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				9E2F2DD02A5D2C69009AF30C /* HapticsManager.swift */,
 				9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */,
 				9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */,
 				9E57DE7A2A648B5D005539F0 /* AppTheme.swift */,
+				9E2F2DC42A5D2A5F009AF30C /* Theme.swift */,
 			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		9E7A34F32A5F45120045777C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				535033652A666D0200579966 /* Intake.swift */,
-				9E7A34F62A5F453D0045777C /* IntakeType.swift */,
-			);
-			path = Models;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +226,6 @@
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
 				535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
-				9E0BFB522A60803900AAAD93 /* HydrationViewModel.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* AddIntakeView.swift in Sources */,
 				5350335D2A666A6100579966 /* EditIntakeViewModel.swift in Sources */,
 				535033602A666B2D00579966 /* IntakesProvider.swift in Sources */,

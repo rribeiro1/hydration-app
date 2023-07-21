@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProgressBar: View {
-    @Binding var progress: Float
-    
+    var progress: Float
+
     var body: some View {
         ZStack {
             VStack {
@@ -43,6 +43,6 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBar(progress: .constant(0.9))
+        ProgressBar(progress: 0.9)
     }
 }

@@ -12,11 +12,10 @@ struct HydrationView: View {
     @State private var intakeToEdit: Intake?
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
-
-    @StateObject private var vm = HydrationViewModel()
+    @State var goal: Int = 3000
 
     var provider = IntakesProvider.shared
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,15 +29,15 @@ struct HydrationView: View {
                 }
                 
                 ZStack {
-                    ProgressBar(progress: $vm.progress)
+                    ProgressBar(progress: progress())
                         .frame(width: 200.0, height: 200.0)
                         .padding(40.0)
                 }
                 
                 HStack {
-                    Text("\(vm.intakeAmmount) mL")
+                    Text("\(intakesToday()) mL")
                     Text("/")
-                    Text("\(vm.goal) mL")
+                    Text("\(goal) mL")
                 }
                 
                 Spacer()
@@ -115,7 +114,7 @@ struct HydrationView: View {
                     }
                     .sheet(isPresented: $showSettings) {
                         NavigationStack {
-                            SettingsView(goal: $vm.goal)
+                            SettingsView(goal: $goal)
                         }
                     }
                 }
@@ -125,6 +124,24 @@ struct HydrationView: View {
             .padding()
             .background(Theme.background)
         }
+    }
+}
+
+extension HydrationView {
+    func progress() -> Float {
+        var intakes: Int = 0
+        for intake in self.intakes {
+            intakes += intake.ammount
+        }
+        return Float(intakes) / Float(goal)
+    }
+    
+    func intakesToday() -> Int {
+        var intakes: Int = 0
+        for intake in self.intakes {
+            intakes += intake.ammount
+        }
+        return intakes
     }
 }
 
