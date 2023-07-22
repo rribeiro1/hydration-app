@@ -18,7 +18,7 @@ final class HydrationProvider {
     }
 
     private init() {
-        container = NSPersistentContainer(name: "IntakesDataModel")
+        container = NSPersistentContainer(name: "HydrationDataModel")
         if EnvironmentValues.isPreview {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }

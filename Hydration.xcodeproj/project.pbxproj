@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */; };
 		535033602A666B2D00579966 /* HydrationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* HydrationProvider.swift */; };
-		535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */; };
+		535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
@@ -71,7 +71,7 @@
 			children = (
 				535033652A666D0200579966 /* Intake.swift */,
 				9E7A34F62A5F453D0045777C /* IntakeType.swift */,
-				535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */,
+				535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				9E57DE7B2A648B5D005539F0 /* AppTheme.swift in Sources */,
 				9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */,
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
-				535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */,
+				535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */,
 				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */,
@@ -449,13 +449,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */ = {
+		535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */,
 			);
 			currentVersion = 535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */;
-			path = IntakesDataModel.xcdatamodeld;
+			path = HydrationDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
