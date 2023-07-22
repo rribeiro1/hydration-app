@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CreateIntakeView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var vm: CreateIntakeViewModel
+    @ObservedObject var vm: HydrationViewModel
+
+    @State var ammount: Int = 250
+    @State var type: IntakeType = .water
 
     private let items = stride(from: 100, through: 2001, by: 50).map { $0 }
 
@@ -20,21 +23,21 @@ struct CreateIntakeView: View {
                 .bold()
 
             HStack {
-                Picker("Select a quantity", selection: $vm.intake.type) {
-                    ForEach(["Water", "Coffee", "Juice", "Other"], id: \.self) { item in
-                        Text(item)
+                Picker("Select a quantity", selection: $type) {
+                    ForEach(IntakeType.allCases, id: \.self) { item in
+                        Text(item.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
 
                 Image(systemName: "drop.fill")
-                    .foregroundColor(vm.intake.intakeType.color)
+                    .foregroundColor(type.color)
                     .font(.system(size: 40))
             }
 
 
-            Picker("Select an ammount", selection: $vm.intake.ammount) {
+            Picker("Select an ammount", selection: $ammount) {
                 ForEach(items, id: \.self) { item in
                     Text("\(item) mL")
                 }
@@ -46,12 +49,8 @@ struct CreateIntakeView: View {
                 systemImage: "square.and.arrow.down",
                 action: {
                     haptic()
-                    do {
-                        try vm.save()
-                        dismiss()
-                    } catch {
-                        print(error)
-                    }
+                    vm.createIntake(ammount: ammount, type: type)
+                    dismiss()
                 }
             )
             .toolbar {
@@ -71,9 +70,7 @@ struct CreateIntakeView: View {
 struct CreateIntakeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            let preview = IntakesProvider.shared
-            CreateIntakeView(vm: .init(provider: preview))
-                .environment(\.managedObjectContext, preview.viewContext)
+            CreateIntakeView(vm: .init())
         }
     }
 }

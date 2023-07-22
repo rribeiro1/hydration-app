@@ -33,24 +33,6 @@ final class Intake: NSManagedObject, Identifiable {
         setPrimitiveValue(IntakeType.water.rawValue, forKey: "type")
         setPrimitiveValue(250, forKey: "ammount")
     }
-
-    static func empty(context: NSManagedObjectContext = IntakesProvider.shared.viewContext) -> Intake {
-        return Intake(context: context)
-    }
-}
-
-extension Intake {
-    private static var intakesFetchRequest: NSFetchRequest<Intake> {
-        NSFetchRequest(entityName: "Intake")
-    }
-    
-    static func all() -> NSFetchRequest<Intake> {
-        let request: NSFetchRequest<Intake> = intakesFetchRequest
-        request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Intake.time, ascending: false)
-        ]
-        return request
-    }
 }
 
 extension Intake {
@@ -68,8 +50,8 @@ extension Intake {
         
         return intakes
     }
-    
-    static func preview(context: NSManagedObjectContext = IntakesProvider.shared.viewContext) -> Intake {
+
+    static func preview(context: NSManagedObjectContext = HydrationProvider.shared.viewContext) -> Intake {
         return makePreview(count: 1, in: context)[0]
     }
 }

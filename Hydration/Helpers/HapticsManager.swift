@@ -11,11 +11,11 @@ import CoreHaptics
 
 fileprivate final class HapticsManager {
     static let shared = HapticsManager()
-    
+
     private let feedback = UIImpactFeedbackGenerator(style: .light)
-    
+
     private init() {}
-    
+
     func trigger() {
         feedback.impactOccurred()
     }

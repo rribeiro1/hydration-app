@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */; };
-		5350335D2A666A6100579966 /* CreateIntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335C2A666A6100579966 /* CreateIntakeViewModel.swift */; };
-		535033602A666B2D00579966 /* IntakesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* IntakesProvider.swift */; };
+		535033602A666B2D00579966 /* HydrationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* HydrationProvider.swift */; };
 		535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* IntakesDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
@@ -26,14 +25,14 @@
 		9E7A34F22A5F33120045777C /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F12A5F33120045777C /* ProgressBar.swift */; };
 		9E7A34F72A5F453D0045777C /* IntakeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F62A5F453D0045777C /* IntakeType.swift */; };
 		9E7A34F92A5F49230045777C /* IntakeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7A34F82A5F49230045777C /* IntakeRowView.swift */; };
+		9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92A9AA2A6C1FA600815990 /* HydrationViewModel.swift */; };
 		9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBA46452A5DD62500D8D44E /* CreateIntakeView.swift */; };
 		9EBA46482A5DD90B00D8D44E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBA46472A5DD90A00D8D44E /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyIntakesView.swift; sourceTree = "<group>"; };
-		5350335C2A666A6100579966 /* CreateIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIntakeViewModel.swift; sourceTree = "<group>"; };
-		5350335F2A666B2D00579966 /* IntakesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakesProvider.swift; sourceTree = "<group>"; };
+		5350335F2A666B2D00579966 /* HydrationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		9E7A34F12A5F33120045777C /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		9E7A34F62A5F453D0045777C /* IntakeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeType.swift; sourceTree = "<group>"; };
 		9E7A34F82A5F49230045777C /* IntakeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRowView.swift; sourceTree = "<group>"; };
+		9E92A9AA2A6C1FA600815990 /* HydrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationViewModel.swift; sourceTree = "<group>"; };
 		9EBA46452A5DD62500D8D44E /* CreateIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateIntakeView.swift; path = ../Features/Create/CreateIntakeView.swift; sourceTree = "<group>"; };
 		9EBA46472A5DD90A00D8D44E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +79,7 @@
 		534953732A6AB57E0031BC92 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5350335C2A666A6100579966 /* CreateIntakeViewModel.swift */,
+				9E92A9AA2A6C1FA600815990 /* HydrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 		5350335E2A666B1700579966 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				5350335F2A666B2D00579966 /* IntakesProvider.swift */,
+				5350335F2A666B2D00579966 /* HydrationProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -233,10 +233,10 @@
 				9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */,
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
 				535033632A666B5F00579966 /* IntakesDataModel.xcdatamodeld in Sources */,
+				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */,
-				5350335D2A666A6100579966 /* CreateIntakeViewModel.swift in Sources */,
-				535033602A666B2D00579966 /* IntakesProvider.swift in Sources */,
+				535033602A666B2D00579966 /* HydrationProvider.swift in Sources */,
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
 				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
 				9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */,

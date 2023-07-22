@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct HydrationView: View {
-    @FetchRequest(fetchRequest: Intake.all()) private var intakes
-    @State private var intakeToEdit: Intake?
+    @StateObject var vm = HydrationViewModel()
+
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
-    @State var goal: Int = 3000
-
-    var provider = IntakesProvider.shared
+    @State private var showCreateIntake: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -29,44 +27,33 @@ struct HydrationView: View {
                 }
                 
                 ZStack {
-                    ProgressBar(progress: progress())
+                    ProgressBar(progress: vm.progress)
                         .frame(width: 200.0, height: 200.0)
                         .padding(40.0)
                 }
                 
                 HStack {
-                    Text("\(intakesToday()) mL")
+                    Text("\(vm.intakesAmmount) mL")
                     Text("/")
-                    Text("\(goal) mL")
+                    Text("\(vm.goal) mL")
                 }
                 
                 Spacer()
  
                 ZStack {
-                    if intakes.isEmpty {
+                    if vm.intakes.isEmpty {
                         EmptyIntakesView()
                     } else {
                         List {
-                            ForEach(intakes) { intake in
+                            ForEach(vm.intakes) { intake in
                                 IntakeRowView(intake: intake)
                                     .swipeActions(allowsFullSwipe: true) {
                                         Button(role: .destructive) {
-                                            do {
-                                                try provider.delete(intake, in: provider.viewContext)
-                                            } catch {
-                                                print(error)
-                                            }
+                                            vm.delete(intake)
                                         } label: {
                                             Label("Delete", systemImage: "trash")
                                         }
                                         .tint(.red)
-                                        
-                                        Button {
-                                            intakeToEdit = intake
-                                        } label: {
-                                            Label("Edit", systemImage: "pencil")
-                                        }
-                                        .tint(.orange)
                                     }
                             }
                         }
@@ -95,14 +82,14 @@ struct HydrationView: View {
                         systemImage: "plus.app"
                     ) {
                         haptic()
-                        intakeToEdit = .empty(context: provider.newContext)
+                        showCreateIntake.toggle()
                     }
-                    .sheet(item: $intakeToEdit, onDismiss: { intakeToEdit = nil }, content: { intake in
+                    .sheet(isPresented: $showCreateIntake) {
                         NavigationStack {
-                            CreateIntakeView(vm: .init(provider: provider, intake: intake))
+                            CreateIntakeView(vm: vm)
                         }
                         .presentationDetents([.medium])
-                    })
+                    }
 
                     Button(action: {
                         haptic()
@@ -114,7 +101,7 @@ struct HydrationView: View {
                     }
                     .sheet(isPresented: $showSettings) {
                         NavigationStack {
-                            SettingsView(goal: $goal)
+                            SettingsView(goal: $vm.goal)
                         }
                     }
                 }
@@ -127,37 +114,9 @@ struct HydrationView: View {
     }
 }
 
-extension HydrationView {
-    func progress() -> Float {
-        var intakes: Int = 0
-        for intake in self.intakes {
-            intakes += intake.ammount
-        }
-        return Float(intakes) / Float(goal)
-    }
-    
-    func intakesToday() -> Int {
-        var intakes: Int = 0
-        for intake in self.intakes {
-            intakes += intake.ammount
-        }
-        return intakes
-    }
-}
-
 struct HydrationView_Previews: PreviewProvider {
     static var previews: some View {
-        let preview = IntakesProvider.shared
-        HydrationView(provider: preview)
-            .environment(\.managedObjectContext, preview.viewContext)
+        HydrationView()
             .previewDisplayName("Intakes with Data")
-            .onAppear {
-                Intake.makePreview(count: 10, in: preview.viewContext)
-            }
-        
-        let emptyPreview = IntakesProvider.shared
-        HydrationView(provider: emptyPreview)
-            .environment(\.managedObjectContext, emptyPreview.viewContext)
-            .previewDisplayName("Intakes with no Data")
     }
 }
