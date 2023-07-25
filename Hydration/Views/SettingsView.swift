@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var goal: Int
+    @ObservedObject var vm: HydrationViewModel
 
     @AppStorage(UserDefaultKeys.hapticsEnabled)
     private var isHapticsEnable: Bool = true
@@ -51,13 +51,16 @@ struct SettingsView: View {
                     header: Text("Goals")
                 ) {
                     Label {
-                        Picker("Set your goal", selection: $goal) {
+                        Picker("Set your goal", selection: $vm.goal) {
                             ForEach(stride(from: 500, through: 4001, by: 500).map { $0 }, id: \.self) { goal in
                                 Text("\(goal) mL")
                                     .foregroundColor(Theme.text)
                             }
                         }
                         .pickerStyle(.menu)
+                        .onChange(of: vm.goal) { newGoal in
+                            vm.saveGoal(goal: newGoal)
+                        }
                     } icon: {
                         Image(systemName: "drop")
                             .symbolVariant(.fill)
@@ -92,12 +95,13 @@ struct SettingsView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
+                Button("Close") {
                     dismiss()
                 }
             }
         }
         .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(selectedTheme.color)
         .background(Theme.systemBackground)
     }
@@ -106,7 +110,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView(goal: .constant(3000))
+            SettingsView(vm: .init())
         }
     }
 }

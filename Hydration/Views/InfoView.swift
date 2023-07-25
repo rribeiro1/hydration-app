@@ -65,12 +65,13 @@ struct InfoView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
+                Button("Close") {
                     dismiss()
                 }
             }
         }
         .navigationTitle("Info")
+        .navigationBarTitleDisplayMode(.inline)
         .background(Theme.systemBackground)
     }
 }

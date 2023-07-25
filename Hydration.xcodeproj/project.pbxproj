@@ -11,6 +11,7 @@
 		535033602A666B2D00579966 /* HydrationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* HydrationProvider.swift */; };
 		535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
+		53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6CE32A6CEB4C00154E5E /* User.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		5350335F2A666B2D00579966 /* HydrationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
+		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		534953722A6AB4CF0031BC92 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				53AD6CE32A6CEB4C00154E5E /* User.swift */,
 				535033652A666D0200579966 /* Intake.swift */,
 				9E7A34F62A5F453D0045777C /* IntakeType.swift */,
 				535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */,
@@ -186,7 +189,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					9E2F2DB12A5D2A3D009AF30C = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -236,6 +239,7 @@
 				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */,
+				53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */,
 				535033602A666B2D00579966 /* HydrationProvider.swift in Sources */,
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
 				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
@@ -289,6 +293,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -349,6 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -378,6 +384,8 @@
 				DEVELOPMENT_TEAM = AXJR9SZZGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -407,6 +415,8 @@
 				DEVELOPMENT_TEAM = AXJR9SZZGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

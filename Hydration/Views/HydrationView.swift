@@ -27,17 +27,11 @@ struct HydrationView: View {
                 }
                 
                 ZStack {
-                    ProgressBar(progress: vm.progress)
+                    ProgressBar(progress: vm.progress, goal: vm.goal, intakeAmmount: vm.intakesAmmount)
                         .frame(width: 200.0, height: 200.0)
                         .padding(40.0)
                 }
-                
-                HStack {
-                    Text("\(vm.intakesAmmount) mL")
-                    Text("/")
-                    Text("\(vm.goal) mL")
-                }
-                
+
                 Spacer()
  
                 ZStack {
@@ -101,7 +95,7 @@ struct HydrationView: View {
                     }
                     .sheet(isPresented: $showSettings) {
                         NavigationStack {
-                            SettingsView(goal: $vm.goal)
+                            SettingsView(vm: vm)
                         }
                     }
                 }

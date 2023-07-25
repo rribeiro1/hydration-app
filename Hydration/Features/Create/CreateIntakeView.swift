@@ -18,10 +18,6 @@ struct CreateIntakeView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            Text("New Intake")
-                .font(.title)
-                .bold()
-
             HStack {
                 Picker("Select a quantity", selection: $type) {
                     ForEach(IntakeType.allCases, id: \.self) { item in
@@ -54,12 +50,14 @@ struct CreateIntakeView: View {
                 }
             )
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Close") {
                         dismiss()
                     }
                 }
             }
+            .navigationTitle("New Intake")
+            .navigationBarTitleDisplayMode(.inline)
             .frame(height: 60)
             .padding(.horizontal, 60)
         }

@@ -13,7 +13,7 @@ enum IntakeType : String, CaseIterable {
     case coffee = "Coffee"
     case juice = "Juice"
     case other = "Other"
-    
+
     var color: Color {
         switch self {
         case .water:
