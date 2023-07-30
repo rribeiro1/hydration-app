@@ -17,7 +17,8 @@ final class Intake: NSManagedObject, Identifiable {
     @NSManaged var ammount: Int
     @NSManaged var type: String
     @NSManaged var time: Date
-    
+    @NSManaged var processed: Bool
+
     var intakeType: IntakeType {
         get {
             return IntakeType(rawValue: type) ?? .water
@@ -32,6 +33,7 @@ final class Intake: NSManagedObject, Identifiable {
         setPrimitiveValue(Date.now, forKey: "time")
         setPrimitiveValue(IntakeType.water.rawValue, forKey: "type")
         setPrimitiveValue(250, forKey: "ammount")
+        setPrimitiveValue(false, forKey: "processed")
     }
 }
 
@@ -39,15 +41,16 @@ extension Intake {
     @discardableResult
     static func makePreview(count: Int, in context: NSManagedObjectContext) -> [Intake] {
         var intakes = [Intake]()
-        
+
         for _ in 0..<count {
             let intake = Intake(context: context)
             intake.ammount = 300
             intake.type = IntakeType.allCases.randomElement()!.rawValue
             intake.time = Date()
+            intake.processed = true
             intakes.append(intake)
         }
-        
+
         return intakes
     }
 

@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */; };
+		534606922A70301100CA7009 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534606912A70301100CA7009 /* HealthService.swift */; };
 		535033602A666B2D00579966 /* HydrationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* HydrationProvider.swift */; };
 		535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
 		53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6CE32A6CEB4C00154E5E /* User.swift */; };
+		53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
@@ -33,10 +35,14 @@
 
 /* Begin PBXFileReference section */
 		5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyIntakesView.swift; sourceTree = "<group>"; };
+		534606912A70301100CA7009 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		534606932A70319000CA7009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		534606942A7031AD00CA7009 /* Hydration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydration.entitlements; sourceTree = "<group>"; };
 		5350335F2A666B2D00579966 /* HydrationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
@@ -68,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534606902A702FFA00CA7009 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				534606912A70301100CA7009 /* HealthService.swift */,
+				53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		534953722A6AB4CF0031BC92 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,11 +129,14 @@
 		9E2F2DB42A5D2A3D009AF30C /* Hydration */ = {
 			isa = PBXGroup;
 			children = (
-				5350335E2A666B1700579966 /* Providers */,
+				534606942A7031AD00CA7009 /* Hydration.entitlements */,
+				534606932A70319000CA7009 /* Info.plist */,
 				9E2F2DCF2A5D2C57009AF30C /* Helpers */,
 				9E2F2DC52A5D2A5F009AF30C /* Views */,
 				534953732A6AB57E0031BC92 /* ViewModels */,
 				534953722A6AB4CF0031BC92 /* DataModels */,
+				5350335E2A666B1700579966 /* Providers */,
+				534606902A702FFA00CA7009 /* Service */,
 				9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */,
 				9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */,
 				9E2F2DBB2A5D2A3F009AF30C /* Preview Content */,
@@ -137,8 +155,8 @@
 		9E2F2DC52A5D2A5F009AF30C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9EBA46452A5DD62500D8D44E /* CreateIntakeView.swift */,
 				9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */,
+				9EBA46452A5DD62500D8D44E /* CreateIntakeView.swift */,
 				9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */,
 				9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */,
 				9EBA46472A5DD90A00D8D44E /* CustomButton.swift */,
@@ -234,6 +252,7 @@
 				535033672A666D0200579966 /* Intake.swift in Sources */,
 				9E57DE7B2A648B5D005539F0 /* AppTheme.swift in Sources */,
 				9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */,
+				53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */,
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
 				535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */,
 				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
@@ -242,6 +261,7 @@
 				53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */,
 				535033602A666B2D00579966 /* HydrationProvider.swift in Sources */,
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
+				534606922A70301100CA7009 /* HealthService.swift in Sources */,
 				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
 				9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */,
 				9E2F2DD32A5D2C89009AF30C /* UserDefaultKeys.swift in Sources */,
@@ -378,14 +398,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hydration/Hydration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydration/Preview Content\"";
 				DEVELOPMENT_TEAM = AXJR9SZZGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hydration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app requires access to update Apple Health Service with your water consumption.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,14 +432,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hydration/Hydration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydration/Preview Content\"";
 				DEVELOPMENT_TEAM = AXJR9SZZGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hydration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app requires access to update Apple Health Service with your water consumption.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

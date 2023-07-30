@@ -11,50 +11,37 @@ import CoreData
 final class HydrationViewModel: ObservableObject {
     private let viewContext = HydrationProvider.shared.viewContext
 
-    @Published var goal: Int = 3000 {
-        didSet {
-            updateProgress()
-        }
-    }
-    @Published var intakes: [Intake] = [] {
-        didSet {
-            updateProgress()
-        }
-    }
-    @Published var progress: Float = 0.0
-    @Published var intakesAmmount: Int = 0
-
-    init() {
-        fetchGoal()
-        fetchIntakes()
-    }
+    @Published var goal: Int = 3000 { didSet {updateProgress()} }
+    @Published private(set) var intakes: [Intake] = [] { didSet {updateProgress()} }
+    @Published private(set) var progress: Float = 0.0
+    @Published private(set) var intakesAmmount: Int = 0
 
     private func updateProgress() {
         self.intakesAmmount = intakes.reduce(0, { $0 + $1.ammount })
         self.progress = Float(intakesAmmount) / Float(goal)
     }
 
-    private func fetchIntakes() {
+    func fetchIntakes() {
         let request = NSFetchRequest<Intake>(entityName: "Intake")
         
         // Create a predicate to filter intakes from today's date.
         let predicate = NSPredicate(format: "time >= %@", Calendar.current.startOfDay(for: Date()) as NSDate)
+        let sort = NSSortDescriptor(key: "time", ascending: false)
         request.predicate = predicate
+        request.sortDescriptors = [sort]
 
-        do {
-            intakes = try viewContext.fetch(request)
-        } catch {
-            print("DEBUG: Some error occured while fetching")
+        if let intakes = try? viewContext.fetch(request) {
+            self.intakes = intakes
         }
     }
 
-    private func fetchGoal() {
+    func fetchGoal() {
         self.goal = getOrCreateUser().goal
     }
 
     func saveGoal(goal: Int) {
         getOrCreateUser().goal = goal
-        save()
+        persist()
     }
 
     func createIntake(ammount: Int, type: IntakeType) {
@@ -62,13 +49,13 @@ final class HydrationViewModel: ObservableObject {
         intake.ammount = ammount
         intake.type = type.rawValue
         intake.time = Date()
-        save()
+        persist()
     }
 
     func delete(_ intake: Intake) {
         if let existingIntake = exists(intake) {
             viewContext.delete(existingIntake)
-            save()
+            persist()
         }
     }
 
@@ -76,13 +63,41 @@ final class HydrationViewModel: ObservableObject {
         try? viewContext.existingObject(with: intake.objectID) as? Intake
     }
     
-    func save() {
+    func persist() {
         do {
-            try viewContext.save()
-            fetchIntakes()
-            print("Item was saved")
+            if viewContext.hasChanges {
+                try viewContext.save()
+                self.fetchIntakes()
+            }
         } catch {
             print("Error saving!")
+        }
+    }
+
+    func logIntakes() async {
+        let intakesToProcess = self.intakes.filter { intake in
+            !intake.processed
+        }
+
+        do {
+            try await HealthKitService.shared.saveData(intakesToProcess)
+        } catch {
+            print("Error while saving data to Health")
+        }
+
+        for intake in self.intakes {
+            if let existingIntake = exists(intake) {
+                existingIntake.processed = true
+            }
+        }
+        persist()
+    }
+
+    func requestAccess() async {
+        do {
+            try await HealthKitService.shared.requestAuthorization()
+        } catch {
+            print("Access not granted!")
         }
     }
 }
@@ -108,7 +123,7 @@ extension HydrationViewModel {
     private func createUser(goal: Int) -> User {
         let user = User(context: viewContext)
         user.goal = goal
-        save()
+        persist()
         return user
     }
 }

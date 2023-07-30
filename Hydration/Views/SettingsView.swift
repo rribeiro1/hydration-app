@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var vm: HydrationViewModel
+    @EnvironmentObject var vm: HydrationViewModel
+    @Environment(\.dismiss) private var dismiss
 
     @AppStorage(UserDefaultKeys.hapticsEnabled)
     private var isHapticsEnable: Bool = true
 
     @AppStorage(UserDefaultKeys.colorScheme)
     private var selectedTheme: AppTheme = .system
-    
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack {
@@ -32,6 +31,7 @@ struct SettingsView: View {
                                     .tag(theme)
                             }
                         }
+                        .accentColor(Theme.text)
                         .pickerStyle(.menu)
                     } icon: {
                         Image(systemName: "sun.max")
@@ -58,6 +58,7 @@ struct SettingsView: View {
                             }
                         }
                         .pickerStyle(.menu)
+                        .accentColor(Theme.text)
                         .onChange(of: vm.goal) { newGoal in
                             vm.saveGoal(goal: newGoal)
                         }
@@ -70,16 +71,21 @@ struct SettingsView: View {
                 
                 Section(
                     header: Text("Apple Health"),
-                    footer: Text("Logging to Health deletes all intake listings from this app! Intake is logged and reset automatically at the start of each day.")
+                    footer: Text("Log water consumption manually in Health app, you will see a heart icon displayed when the icon is synced with Health app! Intakes are logged and reset automatically at the start of each day.")
                 ) {
                     Label {
-                        Text("Log to Health")
-                            .foregroundColor(Color.orange)
+                        Button("Log to Health") {
+                            // TODO: Log intakes on Apple Health Kit
+                            Task {
+                                await vm.logIntakes()
+                            }
+                            dismiss()
+                        }
                     } icon: {
                         Image(systemName: "heart")
                             .symbolVariant(.fill)
-                            .foregroundColor(Color.orange)
                     }
+                    .foregroundColor(Color.orange)
                 }
             }
             
@@ -110,7 +116,8 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView(vm: .init())
+            SettingsView()
+                .environmentObject(HydrationViewModel())
         }
     }
 }

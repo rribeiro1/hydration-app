@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 struct IntakeRowView: View {
-    var intake: Intake
+    @ObservedObject var intake: Intake
 
     var body: some View {
         HStack {
             Text("\(intake.ammount) mL")
                 .bold()
             Spacer()
+            Image(systemName: "heart")
+                .symbolVariant(.fill)
+                .foregroundColor(intake.processed ? .red : .gray)
+                .opacity(0.7)
             Text(intake.type)
             Image(systemName: "drop.fill")
                 .foregroundColor(intake.intakeType.color)

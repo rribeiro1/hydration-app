@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HydrationView: View {
-    @StateObject var vm = HydrationViewModel()
+    @EnvironmentObject var vm: HydrationViewModel
 
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
@@ -80,7 +80,7 @@ struct HydrationView: View {
                     }
                     .sheet(isPresented: $showCreateIntake) {
                         NavigationStack {
-                            CreateIntakeView(vm: vm)
+                            CreateIntakeView()
                         }
                         .presentationDetents([.medium])
                     }
@@ -95,7 +95,7 @@ struct HydrationView: View {
                     }
                     .sheet(isPresented: $showSettings) {
                         NavigationStack {
-                            SettingsView(vm: vm)
+                            SettingsView()
                         }
                     }
                 }
@@ -104,6 +104,11 @@ struct HydrationView: View {
             }
             .padding()
             .background(Theme.background)
+            .task {
+                await vm.requestAccess()
+                vm.fetchGoal()
+                vm.fetchIntakes()
+            }
         }
     }
 }
@@ -111,6 +116,6 @@ struct HydrationView: View {
 struct HydrationView_Previews: PreviewProvider {
     static var previews: some View {
         HydrationView()
-            .previewDisplayName("Intakes with Data")
+            .environmentObject(HydrationViewModel())
     }
 }

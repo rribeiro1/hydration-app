@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CreateIntakeView: View {
+    @EnvironmentObject var vm: HydrationViewModel
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var vm: HydrationViewModel
 
     @State var ammount: Int = 250
     @State var type: IntakeType = .water
@@ -31,7 +31,6 @@ struct CreateIntakeView: View {
                     .foregroundColor(type.color)
                     .font(.system(size: 40))
             }
-
 
             Picker("Select an ammount", selection: $ammount) {
                 ForEach(items, id: \.self) { item in
@@ -68,7 +67,8 @@ struct CreateIntakeView: View {
 struct CreateIntakeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CreateIntakeView(vm: .init())
+            CreateIntakeView()
+                .environmentObject(HydrationViewModel())
         }
     }
 }
