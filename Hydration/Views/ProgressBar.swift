@@ -42,7 +42,7 @@ struct ProgressBar: View {
                 .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Theme.primary)
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear(duration: 1.0), value: progress)
+                .animation(.easeOut(duration: 0.25), value: progress)
         }
     }
 }

@@ -14,7 +14,7 @@
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
 		53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6CE32A6CEB4C00154E5E /* User.swift */; };
 		53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */; };
-		9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */; };
+		9E0BFB542A609AD500AAAD93 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DataHelper.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
 		9E2F2DBD2A5D2A3F009AF30C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DBC2A5D2A3F009AF30C /* Preview Assets.xcassets */; };
@@ -43,7 +43,7 @@
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
-		9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		9E0BFB532A609AD500AAAD93 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
 		9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 			children = (
 				9E2F2DD02A5D2C69009AF30C /* HapticsManager.swift */,
 				9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */,
-				9E0BFB532A609AD500AAAD93 /* DateFormatterManager.swift */,
+				9E0BFB532A609AD500AAAD93 /* DataHelper.swift */,
 				9E57DE7A2A648B5D005539F0 /* AppTheme.swift */,
 				9E2F2DC42A5D2A5F009AF30C /* Theme.swift */,
 			);
@@ -263,7 +263,7 @@
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
 				534606922A70301100CA7009 /* HealthService.swift in Sources */,
 				9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */,
-				9E0BFB542A609AD500AAAD93 /* DateFormatterManager.swift in Sources */,
+				9E0BFB542A609AD500AAAD93 /* DataHelper.swift in Sources */,
 				9E2F2DD32A5D2C89009AF30C /* UserDefaultKeys.swift in Sources */,
 				9EBA46482A5DD90B00D8D44E /* CustomButton.swift in Sources */,
 				9E7A34F92A5F49230045777C /* IntakeRowView.swift in Sources */,

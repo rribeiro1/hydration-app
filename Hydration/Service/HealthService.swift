@@ -33,9 +33,14 @@ final class HealthKitService {
         }
     }
 
+    @MainActor
     func saveData(_ intakes: [Intake]) async throws {
         let dietaryWater = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!
-        
+
+        if intakes.isEmpty {
+            throw HealthKitError.noDataToSend
+        }
+
         guard let store = self.store else {
             throw HealthKitError.unavailable
         }

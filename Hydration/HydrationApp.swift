@@ -11,7 +11,10 @@ import SwiftUI
 struct HydrationApp: App {
     @AppStorage(UserDefaultKeys.colorScheme)
     private var selectedTheme: AppTheme = .system
-    
+
+    @AppStorage(UserDefaultKeys.hapticsEnabled)
+    private var isHapticsEnable: Bool = true
+
     @StateObject var hydrationModelView = HydrationViewModel()
 
     var body: some Scene {

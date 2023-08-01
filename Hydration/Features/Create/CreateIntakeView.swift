@@ -51,6 +51,7 @@ struct CreateIntakeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Close") {
+                        haptic()
                         dismiss()
                     }
                 }

@@ -16,6 +16,10 @@ final class HydrationViewModel: ObservableObject {
     @Published private(set) var progress: Float = 0.0
     @Published private(set) var intakesAmmount: Int = 0
 
+    @Published var showAlert: Bool = false
+    @Published private(set) var alertTitle: String = ""
+    @Published private(set) var alertMessage: String = ""
+
     private func updateProgress() {
         self.intakesAmmount = intakes.reduce(0, { $0 + $1.ammount })
         self.progress = Float(intakesAmmount) / Float(goal)
@@ -52,11 +56,13 @@ final class HydrationViewModel: ObservableObject {
         persist()
     }
 
-    func delete(_ intake: Intake) {
-        if let existingIntake = exists(intake) {
-            viewContext.delete(existingIntake)
-            persist()
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let intake = intakes[index]
+            viewContext.delete(intake)
+            objectWillChange.send()
         }
+        persist()
     }
 
     func exists(_ intake: Intake) -> Intake? {
@@ -67,13 +73,14 @@ final class HydrationViewModel: ObservableObject {
         do {
             if viewContext.hasChanges {
                 try viewContext.save()
-                self.fetchIntakes()
             }
+            self.fetchIntakes()
         } catch {
             print("Error saving!")
         }
     }
 
+    @MainActor
     func logIntakes() async {
         let intakesToProcess = self.intakes.filter { intake in
             !intake.processed
@@ -85,20 +92,28 @@ final class HydrationViewModel: ObservableObject {
             print("Error while saving data to Health")
         }
 
-        for intake in self.intakes {
-            if let existingIntake = exists(intake) {
-                existingIntake.processed = true
-            }
+        for intake in intakesToProcess {
+            intake.processed = true
         }
+ 
         persist()
+
+        setAlert(title: "Good work!", message: "Your water consumption data was pushed to Health app!")
     }
 
     func requestAccess() async {
         do {
             try await HealthKitService.shared.requestAuthorization()
         } catch {
-            print("Access not granted!")
+            
         }
+    }
+
+    @MainActor
+    func setAlert(title: String, message: String) {
+        self.showAlert = true
+        self.alertTitle = title
+        self.alertMessage = message
     }
 }
 

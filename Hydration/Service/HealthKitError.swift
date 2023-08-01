@@ -10,6 +10,7 @@ import Foundation
 enum HealthKitError: Error, LocalizedError {
     case unavailable
     case unauthorized
+    case noDataToSend
     case authorizationFailed(String)
     case failedToSave(String)
     
@@ -19,6 +20,8 @@ enum HealthKitError: Error, LocalizedError {
             return "Health app is not available in the user's device."
         case .unauthorized:
             return "The user has explicitly denied permission to share data with Health app."
+        case .noDataToSend:
+            return "There is no data to sync with Health app."
         case .authorizationFailed(let string):
             return string
         case .failedToSave(let string):

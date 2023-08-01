@@ -13,12 +13,12 @@ struct HydrationView: View {
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
     @State private var showCreateIntake: Bool = false
-
+    
     var body: some View {
         NavigationStack {
             VStack {
                 VStack {
-                    Text(DateFormatterManager.shared.fullDate(date: Date()))
+                    Text(DateHelper.formatFullDate(date: Date()))
                         .font(.title)
                         .bold()
                         .padding(.bottom, 2)
@@ -41,15 +41,8 @@ struct HydrationView: View {
                         List {
                             ForEach(vm.intakes) { intake in
                                 IntakeRowView(intake: intake)
-                                    .swipeActions(allowsFullSwipe: true) {
-                                        Button(role: .destructive) {
-                                            vm.delete(intake)
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                        }
-                                        .tint(.red)
-                                    }
                             }
+                            .onDelete(perform: vm.delete)
                         }
                     }
                 }
@@ -108,6 +101,12 @@ struct HydrationView: View {
                 await vm.requestAccess()
                 vm.fetchGoal()
                 vm.fetchIntakes()
+            }
+            .alert(isPresented: $vm.showAlert) {
+                Alert(
+                    title: Text(vm.alertTitle),
+                    message: Text(vm.alertMessage)
+                )
             }
         }
     }

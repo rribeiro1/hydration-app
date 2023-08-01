@@ -75,11 +75,10 @@ struct SettingsView: View {
                 ) {
                     Label {
                         Button("Log to Health") {
-                            // TODO: Log intakes on Apple Health Kit
-                            Task {
+                            Task(priority: .userInitiated) {
                                 await vm.logIntakes()
+                                haptic()
                             }
-                            dismiss()
                         }
                     } icon: {
                         Image(systemName: "heart")
@@ -102,6 +101,7 @@ struct SettingsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Close") {
+                    haptic()
                     dismiss()
                 }
             }
@@ -110,6 +110,12 @@ struct SettingsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(selectedTheme.color)
         .background(Theme.systemBackground)
+        .alert(isPresented: $vm.showAlert) {
+            Alert(
+                title: Text(vm.alertTitle),
+                message: Text(vm.alertMessage)
+            )
+        }
     }
 }
 
