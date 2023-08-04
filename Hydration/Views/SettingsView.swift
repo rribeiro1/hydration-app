@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @AppStorage(UserDefaultKeys.hapticsEnabled)
-    private var isHapticsEnable: Bool = true
+    private var isHapticsEnable: Bool = false
 
     @AppStorage(UserDefaultKeys.colorScheme)
     private var selectedTheme: AppTheme = .system
@@ -71,7 +71,7 @@ struct SettingsView: View {
                 
                 Section(
                     header: Text("Apple Health"),
-                    footer: Text("Log water consumption manually in Health app, you will see a heart icon displayed when the icon is synced with Health app! Intakes are logged and reset automatically at the start of each day.")
+                    footer: Text("You can always record your water intake directly in the Health app! When you see a gray heart icon next to an intake entry, it means that we're still working on syncing it with the Health app. Hang tight!")
                 ) {
                     Label {
                         Button("Log to Health") {
@@ -87,16 +87,6 @@ struct SettingsView: View {
                     .foregroundColor(Color.orange)
                 }
             }
-            
-            HStack(spacing: 4) {
-                Text("Made with")
-                Image(systemName: "heart")
-                    .symbolVariant(.fill)
-                    .foregroundColor(.red)
-                Text("in Berlin")
-            }
-            .font(.caption)
-            .foregroundColor(.gray)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -109,7 +99,6 @@ struct SettingsView: View {
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(selectedTheme.color)
-        .background(Theme.systemBackground)
         .alert(isPresented: $vm.showAlert) {
             Alert(
                 title: Text(vm.alertTitle),

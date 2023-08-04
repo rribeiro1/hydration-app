@@ -27,7 +27,7 @@ struct HydrationView: View {
                 }
                 
                 ZStack {
-                    ProgressBar(progress: vm.progress, goal: vm.goal, intakeAmmount: vm.intakesAmmount)
+                    ProgressBar(progress: vm.progress, goal: vm.goal, intakeAmount: vm.intakesAmount)
                         .frame(width: 200.0, height: 200.0)
                         .padding(40.0)
                 }
@@ -44,6 +44,7 @@ struct HydrationView: View {
                             }
                             .onDelete(perform: vm.delete)
                         }
+                        .listStyle(.plain)
                     }
                 }
 
@@ -95,8 +96,6 @@ struct HydrationView: View {
                 .padding(.horizontal, 40)
                 .frame(height: 60)
             }
-            .padding()
-            .background(Theme.background)
             .task {
                 await vm.requestAccess()
                 vm.fetchGoal()
@@ -108,6 +107,7 @@ struct HydrationView: View {
                     message: Text(vm.alertMessage)
                 )
             }
+            .padding()
         }
     }
 }

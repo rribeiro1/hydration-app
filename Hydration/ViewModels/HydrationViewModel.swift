@@ -14,15 +14,15 @@ final class HydrationViewModel: ObservableObject {
     @Published var goal: Int = 3000 { didSet {updateProgress()} }
     @Published private(set) var intakes: [Intake] = [] { didSet {updateProgress()} }
     @Published private(set) var progress: Float = 0.0
-    @Published private(set) var intakesAmmount: Int = 0
+    @Published private(set) var intakesAmount: Int = 0
 
     @Published var showAlert: Bool = false
     @Published private(set) var alertTitle: String = ""
     @Published private(set) var alertMessage: String = ""
 
     private func updateProgress() {
-        self.intakesAmmount = intakes.reduce(0, { $0 + $1.ammount })
-        self.progress = Float(intakesAmmount) / Float(goal)
+        self.intakesAmount = intakes.reduce(0, { $0 + $1.amount })
+        self.progress = Float(intakesAmount) / Float(goal)
     }
 
     func fetchIntakes() {
@@ -48,9 +48,9 @@ final class HydrationViewModel: ObservableObject {
         persist()
     }
 
-    func createIntake(ammount: Int, type: IntakeType) {
+    func createIntake(amount: Int, type: IntakeType) {
         let intake = Intake(context: viewContext)
-        intake.ammount = ammount
+        intake.amount = amount
         intake.type = type.rawValue
         intake.time = Date()
         persist()

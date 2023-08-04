@@ -10,7 +10,7 @@ import SwiftUI
 struct ProgressBar: View {
     var progress: Float
     var goal: Int
-    var intakeAmmount: Int
+    var intakeAmount: Int
 
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct ProgressBar: View {
                 Text("of your daily goal")
                     .font(.caption2)
 
-                Text("\(intakeAmmount) mL / \(goal) mL")
+                Text("\(intakeAmount) mL / \(goal) mL")
                     .font(.caption)
                     .padding(.vertical, 3)
             }
@@ -49,6 +49,6 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBar(progress: 0.9, goal: 3000, intakeAmmount: 2500)
+        ProgressBar(progress: 0.9, goal: 3000, intakeAmount: 2500)
     }
 }

@@ -75,7 +75,6 @@ struct InfoView: View {
         }
         .navigationTitle("Info")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Theme.systemBackground)
     }
 }
 

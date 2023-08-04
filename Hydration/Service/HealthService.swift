@@ -66,7 +66,7 @@ extension HealthKitService {
                 type: type,
                 quantity: HKQuantity(
                     unit: HKUnit.literUnit(with: .milli),
-                    doubleValue: Double(intake.ammount)
+                    doubleValue: Double(intake.amount)
                 ),
                 start: intake.time,
                 end: intake.time

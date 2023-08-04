@@ -11,7 +11,7 @@ struct CreateIntakeView: View {
     @EnvironmentObject var vm: HydrationViewModel
     @Environment(\.dismiss) private var dismiss
 
-    @State var ammount: Int = 250
+    @State var amount: Int = 250
     @State var type: IntakeType = .water
 
     private let items = stride(from: 100, through: 2001, by: 50).map { $0 }
@@ -32,7 +32,7 @@ struct CreateIntakeView: View {
                     .font(.system(size: 40))
             }
 
-            Picker("Select an ammount", selection: $ammount) {
+            Picker("Select an amount", selection: $amount) {
                 ForEach(items, id: \.self) { item in
                     Text("\(item) mL")
                 }
@@ -44,7 +44,7 @@ struct CreateIntakeView: View {
                 systemImage: "square.and.arrow.down",
                 action: {
                     haptic()
-                    vm.createIntake(ammount: ammount, type: type)
+                    vm.createIntake(amount: amount, type: type)
                     dismiss()
                 }
             )

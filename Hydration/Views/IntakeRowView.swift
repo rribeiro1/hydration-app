@@ -21,23 +21,26 @@ struct IntakeRowView: View {
          */
         if !intake.isFault {
             HStack {
-                Text("\(intake.ammount) mL")
+                Text("\(intake.amount) mL")
                     .bold()
                 Spacer()
-                Image(systemName: "heart")
+                Image(systemName: intake.processed ? "heart" : "arrow.clockwise.heart")
                     .symbolVariant(.fill)
                     .foregroundColor(intake.processed ? .red : .gray)
-                    .overlay {
+                    .overlay(alignment: .bottomTrailing) {
                         if intake.processed {
-                            Image(systemName: "checkmark.circle.fill")
-                                .offset(x: 8, y: 5)
+                            Image(systemName: "checkmark")
+                                .symbolVariant(.circle)
+                                .symbolVariant(.fill)
                                 .foregroundColor(.green)
-                                .font(.system(size: 15))
+                                .font(.system(size: 13.5))
+                                .offset(x: 5, y: 5)
                         }
                     }
                     .padding(.horizontal, 5)
                 Text(intake.type)
-                Image(systemName: "drop.fill")
+                Image(systemName: "drop")
+                    .symbolVariant(.fill)
                     .foregroundColor(intake.intakeType.color)
                 Text(DateHelper.formatTime(date: intake.time))
             }

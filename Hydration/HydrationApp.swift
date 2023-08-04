@@ -13,7 +13,7 @@ struct HydrationApp: App {
     private var selectedTheme: AppTheme = .system
 
     @AppStorage(UserDefaultKeys.hapticsEnabled)
-    private var isHapticsEnable: Bool = true
+    private var isHapticsEnable: Bool = false
 
     @StateObject var hydrationModelView = HydrationViewModel()
 
