@@ -19,6 +19,7 @@ final class HydrationViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published private(set) var alertTitle: String = ""
     @Published private(set) var alertMessage: String = ""
+    @Published private(set) var isLoading = false
 
     private func updateProgress() {
         self.intakesAmount = intakes.reduce(0, { $0 + $1.amount })
@@ -69,7 +70,7 @@ final class HydrationViewModel: ObservableObject {
         try? viewContext.existingObject(with: intake.objectID) as? Intake
     }
     
-    func persist() {
+    private func persist() {
         do {
             if viewContext.hasChanges {
                 try viewContext.save()
@@ -82,30 +83,36 @@ final class HydrationViewModel: ObservableObject {
 
     @MainActor
     func logIntakes() async {
+        isLoading.toggle()
+        
+        // TODO: delete
+        await try! Task.sleep(nanoseconds: 5000000000)
+        
+        defer { isLoading.toggle() }
         let intakesToProcess = self.intakes.filter { intake in
             !intake.processed
         }
-
         do {
             try await HealthKitService.shared.saveData(intakesToProcess)
+            for intake in intakesToProcess {
+                intake.processed = true
+            }
+            persist()
+            setAlert(title: "Good work!", message: "Your water consumption data was pushed to Health app!")
         } catch {
+            setAlert(title: "Something went wrong!", message: "We couldn't send your water intakes to Health, reason: \(error.localizedDescription)")
             print("Error while saving data to Health")
         }
-
-        for intake in intakesToProcess {
-            intake.processed = true
-        }
- 
-        persist()
-
-        setAlert(title: "Good work!", message: "Your water consumption data was pushed to Health app!")
     }
 
+    @MainActor
     func requestAccess() async {
+        isLoading.toggle()
+        defer { isLoading.toggle() }
         do {
             try await HealthKitService.shared.requestAuthorization()
         } catch {
-            
+            print("Error while requesting access to Health")
         }
     }
 

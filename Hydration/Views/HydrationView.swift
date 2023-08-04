@@ -97,7 +97,6 @@ struct HydrationView: View {
                 .frame(height: 60)
             }
             .task {
-                await vm.requestAccess()
                 vm.fetchGoal()
                 vm.fetchIntakes()
             }

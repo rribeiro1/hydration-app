@@ -74,17 +74,25 @@ struct SettingsView: View {
                     footer: Text("You can always record your water intake directly in the Health app! When you see a gray heart icon next to an intake entry, it means that we're still working on syncing it with the Health app. Hang tight!")
                 ) {
                     Label {
-                        Button("Log to Health") {
-                            Task(priority: .userInitiated) {
-                                await vm.logIntakes()
-                                haptic()
+                        HStack {
+                            Button("Log to Health") {
+                                Task(priority: .userInitiated) {
+                                    await vm.logIntakes()
+                                    haptic()
+                                }
+                            }
+                            .disabled(vm.isLoading)
+
+                            if vm.isLoading {
+                                ProgressView()
+                                    .padding(.horizontal, 10)
                             }
                         }
                     } icon: {
                         Image(systemName: "heart")
                             .symbolVariant(.fill)
                     }
-                    .foregroundColor(Color.orange)
+                    .foregroundColor(vm.isLoading ? Color.gray : Color.orange)
                 }
             }
         }

@@ -22,6 +22,9 @@ struct HydrationApp: App {
             HydrationView()
                 .environmentObject(hydrationModelView)
                 .preferredColorScheme(selectedTheme.color)
+                .task {
+                    await hydrationModelView.requestAccess()
+                }
         }
     }
 }
