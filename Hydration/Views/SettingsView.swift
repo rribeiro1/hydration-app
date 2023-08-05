@@ -17,6 +17,9 @@ struct SettingsView: View {
     @AppStorage(UserDefaultKeys.colorScheme)
     private var selectedTheme: AppTheme = .system
 
+    @AppStorage(UserDefaultKeys.activeIcon)
+    private var activeIcon: String = IconType.original.rawValue
+
     var body: some View {
         VStack {
             Form {
@@ -35,6 +38,23 @@ struct SettingsView: View {
                         .pickerStyle(.menu)
                     } icon: {
                         Image(systemName: "sun.max")
+                            .symbolVariant(.fill)
+                            .foregroundColor(Theme.text)
+                    }
+                    
+                    Label {
+                        NavigationLink {
+                            ChangeIconView()
+                        } label: {
+                            HStack {
+                                Text("App Icon")
+                                Spacer()
+                                Text(activeIcon)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    } icon: {
+                        Image(systemName: "app")
                             .symbolVariant(.fill)
                             .foregroundColor(Theme.text)
                     }
@@ -71,7 +91,7 @@ struct SettingsView: View {
                 
                 Section(
                     header: Text("Apple Health"),
-                    footer: Text("You can always record your water intake directly in the Health app! When you see a gray heart icon next to an intake entry, it means the entry was not synced with the Health app yet.")
+                    footer: Text("You can always record your water intake directly in Health app from here! When you see a gray heart icon next to an intake entry, it means the entry was not synced with the Health app yet.")
                 ) {
                     Label {
                         HStack {

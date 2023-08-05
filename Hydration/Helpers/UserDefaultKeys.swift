@@ -10,5 +10,6 @@ import Foundation
 enum UserDefaultKeys {
     static let hapticsEnabled = "hapticsEnabled"
     static let colorScheme = "appColorScheme"
+    static let activeIcon = "activeIcon"
 }
 

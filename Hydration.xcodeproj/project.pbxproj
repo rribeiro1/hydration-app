@@ -16,6 +16,7 @@
 		53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */; };
 		53FE4BA92A7E2CD900FC0D9A /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 53FE4BA82A7E2CD900FC0D9A /* Shimmer */; };
 		53FE4BAB2A7E303300FC0D9A /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */; };
+		53FE4BAD2A7E4D6B00FC0D9A /* ChangeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE4BAC2A7E4D6B00FC0D9A /* ChangeIconView.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DataHelper.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
 		53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
+		53FE4BAC2A7E4D6B00FC0D9A /* ChangeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconView.swift; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9E7A34F12A5F33120045777C /* ProgressBar.swift */,
 				9E7A34F82A5F49230045777C /* IntakeRowView.swift */,
 				5339A54B2A6842E30057E993 /* EmptyIntakesView.swift */,
+				53FE4BAC2A7E4D6B00FC0D9A /* ChangeIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
 				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */,
+				53FE4BAD2A7E4D6B00FC0D9A /* ChangeIconView.swift in Sources */,
 				53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */,
 				535033602A666B2D00579966 /* HydrationProvider.swift in Sources */,
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
@@ -408,8 +412,10 @@
 		9E2F2DC12A5D2A3F009AF30C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon1 AppIcon2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Hydration/Hydration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -418,9 +424,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hydration/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
+				INFOPLIST_KEY_CFBundleDisplayName = "Drink Water";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app requires access to update Apple Health Service with your water consumption.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To keep everything in sync, we need your permission to share your water consumption data with the Apple Health Service. Thanks for helping us keep your hydration records up to date!";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To keep everything in sync, we need your permission to share your water consumption data with the Apple Health Service. Thanks for helping us keep your hydration records up to date!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -442,8 +449,10 @@
 		9E2F2DC22A5D2A3F009AF30C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon1 AppIcon2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Hydration/Hydration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -452,9 +461,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hydration/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Hydration;
+				INFOPLIST_KEY_CFBundleDisplayName = "Drink Water";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app requires access to update Apple Health Service with your water consumption.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To keep everything in sync, we need your permission to share your water consumption data with the Apple Health Service. Thanks for helping us keep your hydration records up to date!";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To keep everything in sync, we need your permission to share your water consumption data with the Apple Health Service. Thanks for helping us keep your hydration records up to date!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
