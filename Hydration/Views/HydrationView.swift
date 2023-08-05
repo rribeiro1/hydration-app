@@ -13,7 +13,7 @@ struct HydrationView: View {
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
     @State private var showCreateIntake: Bool = false
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -107,6 +107,7 @@ struct HydrationView: View {
                 )
             }
             .padding()
+            .loading(vm.isLoading)
         }
     }
 }

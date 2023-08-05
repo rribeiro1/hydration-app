@@ -71,7 +71,7 @@ struct SettingsView: View {
                 
                 Section(
                     header: Text("Apple Health"),
-                    footer: Text("You can always record your water intake directly in the Health app! When you see a gray heart icon next to an intake entry, it means that we're still working on syncing it with the Health app. Hang tight!")
+                    footer: Text("You can always record your water intake directly in the Health app! When you see a gray heart icon next to an intake entry, it means the entry was not synced with the Health app yet.")
                 ) {
                     Label {
                         HStack {

@@ -84,10 +84,6 @@ final class HydrationViewModel: ObservableObject {
     @MainActor
     func logIntakes() async {
         isLoading.toggle()
-        
-        // TODO: delete
-        await try! Task.sleep(nanoseconds: 5000000000)
-        
         defer { isLoading.toggle() }
         let intakesToProcess = self.intakes.filter { intake in
             !intake.processed

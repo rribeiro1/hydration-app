@@ -14,6 +14,8 @@
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
 		53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6CE32A6CEB4C00154E5E /* User.swift */; };
 		53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */; };
+		53FE4BA92A7E2CD900FC0D9A /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 53FE4BA82A7E2CD900FC0D9A /* Shimmer */; };
+		53FE4BAB2A7E303300FC0D9A /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */; };
 		9E0BFB542A609AD500AAAD93 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFB532A609AD500AAAD93 /* DataHelper.swift */; };
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
@@ -43,6 +45,7 @@
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
+		53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
 		9E0BFB532A609AD500AAAD93 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		9E2F2DB22A5D2A3D009AF30C /* Hydration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FE4BA92A7E2CD900FC0D9A /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +179,7 @@
 				9E0BFB532A609AD500AAAD93 /* DataHelper.swift */,
 				9E57DE7A2A648B5D005539F0 /* AppTheme.swift */,
 				9E2F2DC42A5D2A5F009AF30C /* Theme.swift */,
+				53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -195,6 +200,9 @@
 			dependencies = (
 			);
 			name = Hydration;
+			packageProductDependencies = (
+				53FE4BA82A7E2CD900FC0D9A /* Shimmer */,
+			);
 			productName = Hydration;
 			productReference = 9E2F2DB22A5D2A3D009AF30C /* Hydration.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 9E2F2DA92A5D2A3D009AF30C;
+			packageReferences = (
+				53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+			);
 			productRefGroup = 9E2F2DB32A5D2A3D009AF30C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +279,7 @@
 				9EBA46482A5DD90B00D8D44E /* CustomButton.swift in Sources */,
 				9E7A34F92A5F49230045777C /* IntakeRowView.swift in Sources */,
 				9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */,
+				53FE4BAB2A7E303300FC0D9A /* View+Shimmer.swift in Sources */,
 				9E2F2DD12A5D2C69009AF30C /* HapticsManager.swift in Sources */,
 				9E7A34F72A5F453D0045777C /* IntakeType.swift in Sources */,
 				9E7A34F22A5F33120045777C /* ProgressBar.swift in Sources */,
@@ -483,6 +495,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		53FE4BA82A7E2CD900FC0D9A /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */ = {
