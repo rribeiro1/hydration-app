@@ -10,6 +10,7 @@ import SwiftUI
 
 struct IntakeRowView: View {
     @ObservedObject var intake: Intake
+    var selectedIntake: (Intake) -> Void
 
     var body: some View {
         
@@ -23,7 +24,9 @@ struct IntakeRowView: View {
             HStack {
                 Text("\(intake.amount) mL")
                     .bold()
+
                 Spacer()
+
                 Image(systemName: intake.processed ? "heart" : "arrow.clockwise.heart")
                     .symbolVariant(.fill)
                     .foregroundColor(intake.processed ? .red : .gray)
@@ -33,16 +36,26 @@ struct IntakeRowView: View {
                                 .symbolVariant(.circle)
                                 .symbolVariant(.fill)
                                 .foregroundColor(.green)
-                                .font(.system(size: 13.5))
-                                .offset(x: 5, y: 5)
+                                .font(.system(size: 12.0))
+                                .offset(x: 3, y: 3)
                         }
                     }
-                    .padding(.horizontal, 5)
-                Text(intake.type)
-                Image(systemName: "drop")
-                    .symbolVariant(.fill)
-                    .foregroundColor(intake.intakeType.color)
+                    .onTapGesture {
+                        selectedIntake(intake)
+                    }
+
+                HStack {
+                    Text(intake.type)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    Image(systemName: "drop")
+                        .symbolVariant(.fill)
+                        .foregroundColor(intake.intakeType.color)
+                }
+                .frame(width: 80, alignment: .trailing)
+
                 Text(DateHelper.formatTime(date: intake.time))
+                    .frame(width: 80, alignment: .trailing)
             }
             .padding(.vertical, 10)
         } else {
@@ -53,6 +66,6 @@ struct IntakeRowView: View {
 
 struct IntakeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        IntakeRowView(intake: .preview())
+        IntakeRowView(intake: .preview()) { _ in }
     }
 }

@@ -39,6 +39,10 @@ struct ChangeIconView: View {
                                     .symbolVariant(.fill)
                                     .font(.system(size: 20))
                                     .foregroundColor(Theme.primary)
+                            } else {
+                                Circle()
+                                    .stroke(Color.gray, lineWidth: 1)
+                                    .frame(width: 20)
                             }
                         }
                     }

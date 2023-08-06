@@ -30,8 +30,8 @@ struct SettingsView: View {
                     Label {
                         Picker("Color Scheme", selection: $selectedTheme) {
                             ForEach(AppTheme.allCases, id: \.self) { theme in
-                                Text(theme.rawValue.capitalized)
-                                    .tag(theme)
+                                Text(theme.rawValue)
+                                    .tag(theme.rawValue)
                             }
                         }
                         .accentColor(Theme.text)

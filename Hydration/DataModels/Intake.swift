@@ -44,9 +44,9 @@ extension Intake {
 
         for _ in 0..<count {
             let intake = Intake(context: context)
-            intake.amount = 300
+            intake.amount = [250, 500, 1000, 1500].randomElement()!
             intake.type = IntakeType.allCases.randomElement()!.rawValue
-            intake.time = Date()
+            intake.time = [Date(), Date(timeIntervalSinceNow: [100000, 5000000, 1000000].randomElement()!)].randomElement()!
             intake.processed = Bool.random()
             intakes.append(intake)
         }

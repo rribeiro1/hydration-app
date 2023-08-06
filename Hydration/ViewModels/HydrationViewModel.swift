@@ -100,6 +100,17 @@ final class HydrationViewModel: ObservableObject {
             print("Error while saving data to Health")
         }
     }
+    
+    @MainActor
+    func logIntake(intake: Intake) async {
+        do {
+            try await HealthKitService.shared.saveData([intake])
+            intake.processed = true
+            persist()
+        } catch {
+            setAlert(title: "Something went wrong!", message: "We couldn't send your water intakes to Health, reason: \(error.localizedDescription)")
+        }
+    }
 
     @MainActor
     func requestAccess() async {

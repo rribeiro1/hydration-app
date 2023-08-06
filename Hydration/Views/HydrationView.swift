@@ -40,7 +40,9 @@ struct HydrationView: View {
                     } else {
                         List {
                             ForEach(vm.intakes) { intake in
-                                IntakeRowView(intake: intake)
+                                IntakeRowView(intake: intake) { _ in
+                                    Task { await vm.logIntake(intake: intake) }
+                                }
                             }
                             .onDelete(perform: vm.delete)
                         }
