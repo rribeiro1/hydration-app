@@ -6,10 +6,18 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct HydrationView: View {
     @EnvironmentObject var vm: HydrationViewModel
 
+    /// Control progress
+    @AppStorage(UserDefaultKeys.goal) private var goal: Int = 3000
+    @State private var progress: Float = 0.0
+    @State private var intakesAmount: Int = 0
+    @State private var dailyGoalCounter: Int = 0
+
+    /// Control alerts
     @State private var showInfo: Bool = false
     @State private var showSettings: Bool = false
     @State private var showCreateIntake: Bool = false
@@ -27,7 +35,7 @@ struct HydrationView: View {
                 }
                 
                 ZStack {
-                    ProgressBar(progress: vm.progress, goal: vm.goal, intakeAmount: vm.intakesAmount)
+                    ProgressBar(progress: progress, goal: goal, intakeAmount: intakesAmount)
                         .frame(width: 200.0, height: 200.0)
                         .padding(40.0)
                 }
@@ -49,6 +57,21 @@ struct HydrationView: View {
                         .listStyle(.plain)
                     }
                 }
+                .confettiCannon(
+                    counter: $dailyGoalCounter,
+                    num: 2,
+                    confettis: [.sfSymbol(symbolName: "drop.fill")],
+                    colors: [
+                        IntakeType.coffee.color,
+                        IntakeType.juice.color,
+                        IntakeType.water.color,
+                        IntakeType.other.color
+                    ],
+                    confettiSize: 20,
+                    radius: 360,
+                    repetitions: 75,
+                    repetitionInterval: 0.1
+                )
 
                 Spacer()
 
@@ -58,7 +81,7 @@ struct HydrationView: View {
                         showInfo.toggle()
                     }) {
                         Image(systemName: "info.bubble")
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                             .scaleEffect(1.5)
                     }
                     .sheet(isPresented: $showInfo) {
@@ -86,7 +109,7 @@ struct HydrationView: View {
                         showSettings.toggle()
                     }) {
                         Image(systemName: "gearshape")
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                             .scaleEffect(1.5)
                     }
                     .sheet(isPresented: $showSettings) {
@@ -99,9 +122,14 @@ struct HydrationView: View {
                 .frame(height: 60)
             }
             .task {
-                vm.fetchGoal()
                 vm.fetchIntakes()
             }
+            .onReceive(vm.$intakes, perform: { _ in
+                updateProgress()
+            })
+            .onChange(of: goal, perform: { _ in
+                updateProgress()
+            })
             .alert(isPresented: $vm.showAlert) {
                 Alert(
                     title: Text(vm.alertTitle),
@@ -110,6 +138,16 @@ struct HydrationView: View {
             }
             .padding()
             .loading(vm.isLoading)
+        }
+    }
+}
+
+extension HydrationView {
+    private func updateProgress() {
+        intakesAmount = vm.intakes.reduce(0, { $0 + $1.amount })
+        progress = Float(intakesAmount) / Float(goal)
+        if progress >= 1.0 {
+            dailyGoalCounter += 1
         }
     }
 }

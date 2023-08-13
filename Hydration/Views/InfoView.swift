@@ -16,11 +16,11 @@ struct InfoView: View {
                 VStack(alignment: .center) {
                     Image(systemName: "drop")
                         .symbolVariant(.fill)
-                        .foregroundColor(Theme.text)
+                        .foregroundColor(ColorTheme.text)
                         .font(.system(size: 80))
                     
                     Image(systemName: "ruler")
-                        .foregroundColor(Theme.text)
+                        .foregroundColor(ColorTheme.text)
                         .font(.system(size: 60))
                 }
                 .padding()
@@ -60,7 +60,7 @@ struct InfoView: View {
                 
                 Spacer()
                 
-                Text("Source: Mayo")
+                Text("Source: Mayo Clinic")
                     .font(.caption)
                     .bold()
             }

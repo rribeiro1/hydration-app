@@ -19,6 +19,9 @@ struct SettingsView: View {
 
     @AppStorage(UserDefaultKeys.activeIcon)
     private var activeIcon: String = IconType.original.rawValue
+    
+    @AppStorage(UserDefaultKeys.goal)
+    private var goal: Int = 3000
 
     var body: some View {
         VStack {
@@ -30,16 +33,16 @@ struct SettingsView: View {
                     Label {
                         Picker("Color Scheme", selection: $selectedTheme) {
                             ForEach(AppTheme.allCases, id: \.self) { theme in
-                                Text(theme.rawValue)
+                                Text(theme.description)
                                     .tag(theme.rawValue)
                             }
                         }
-                        .accentColor(Theme.text)
+                        .accentColor(ColorTheme.text)
                         .pickerStyle(.menu)
                     } icon: {
                         Image(systemName: "sun.max")
                             .symbolVariant(.fill)
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                     }
                     
                     Label {
@@ -56,14 +59,14 @@ struct SettingsView: View {
                     } icon: {
                         Image(systemName: "app")
                             .symbolVariant(.fill)
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                     }
                     
                     Label {
                         Toggle("Haptic Feedback", isOn: $isHapticsEnable)
                     } icon: {
                         Image(systemName: "water.waves")
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                     }
                 }
                 
@@ -71,21 +74,18 @@ struct SettingsView: View {
                     header: Text("Goals")
                 ) {
                     Label {
-                        Picker("Set your goal", selection: $vm.goal) {
+                        Picker("Set your goal", selection: $goal) {
                             ForEach(stride(from: 500, through: 4001, by: 500).map { $0 }, id: \.self) { goal in
                                 Text("\(goal) mL")
-                                    .foregroundColor(Theme.text)
+                                    .foregroundColor(ColorTheme.text)
                             }
                         }
                         .pickerStyle(.menu)
-                        .accentColor(Theme.text)
-                        .onChange(of: vm.goal) { newGoal in
-                            vm.saveGoal(goal: newGoal)
-                        }
+                        .accentColor(ColorTheme.text)
                     } icon: {
                         Image(systemName: "drop")
                             .symbolVariant(.fill)
-                            .foregroundColor(Theme.text)
+                            .foregroundColor(ColorTheme.text)
                     }
                 }
                 

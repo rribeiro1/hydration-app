@@ -10,21 +10,12 @@ import CoreData
 
 final class HydrationViewModel: ObservableObject {
     private let viewContext = HydrationProvider.shared.viewContext
-
-    @Published var goal: Int = 3000 { didSet {updateProgress()} }
-    @Published private(set) var intakes: [Intake] = [] { didSet {updateProgress()} }
-    @Published private(set) var progress: Float = 0.0
-    @Published private(set) var intakesAmount: Int = 0
+    @Published private(set) var intakes: [Intake] = []
 
     @Published var showAlert: Bool = false
     @Published private(set) var alertTitle: String = ""
     @Published private(set) var alertMessage: String = ""
     @Published private(set) var isLoading = false
-
-    private func updateProgress() {
-        self.intakesAmount = intakes.reduce(0, { $0 + $1.amount })
-        self.progress = Float(intakesAmount) / Float(goal)
-    }
 
     func fetchIntakes() {
         let request = NSFetchRequest<Intake>(entityName: "Intake")
@@ -38,15 +29,6 @@ final class HydrationViewModel: ObservableObject {
         if let intakes = try? viewContext.fetch(request) {
             self.intakes = intakes
         }
-    }
-
-    func fetchGoal() {
-        self.goal = getOrCreateUser().goal
-    }
-
-    func saveGoal(goal: Int) {
-        getOrCreateUser().goal = goal
-        persist()
     }
 
     func createIntake(amount: Int, type: IntakeType) {
@@ -128,31 +110,5 @@ final class HydrationViewModel: ObservableObject {
         self.showAlert = true
         self.alertTitle = title
         self.alertMessage = message
-    }
-}
-
-extension HydrationViewModel {
-    private func getOrCreateUser() -> User {
-        return getUser() ?? createUser(goal: 3000)
-    }
-
-    private func getUser() -> User? {
-        let request = NSFetchRequest<User>(entityName: "User")
-        request.fetchLimit = 1
-
-        do {
-            let users = try viewContext.fetch(request)
-            return users.first
-        } catch {
-            print("DEBUG: Some error occured while fetching: \(error)")
-            return nil
-        }
-    }
-
-    private func createUser(goal: Int) -> User {
-        let user = User(context: viewContext)
-        user.goal = goal
-        persist()
-        return user
     }
 }

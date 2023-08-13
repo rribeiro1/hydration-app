@@ -16,7 +16,7 @@ struct CustomButton: View {
         Button(action: action) {
             ZStack {
                 RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(Theme.primary)
+                    .foregroundColor(ColorTheme.primary)
 
                 HStack {
                     Text(text)

@@ -12,7 +12,8 @@
 		535033602A666B2D00579966 /* HydrationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350335F2A666B2D00579966 /* HydrationProvider.swift */; };
 		535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */; };
 		535033672A666D0200579966 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535033652A666D0200579966 /* Intake.swift */; };
-		53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6CE32A6CEB4C00154E5E /* User.swift */; };
+		53B485A32A89551000436E76 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 53B485A22A89551000436E76 /* ConfettiSwiftUI */; };
+		53B485A62A89556100436E76 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 53B485A52A89556100436E76 /* ConfettiSwiftUI */; };
 		53CB7EC82A76F2FA00052C68 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */; };
 		53FE4BA92A7E2CD900FC0D9A /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 53FE4BA82A7E2CD900FC0D9A /* Shimmer */; };
 		53FE4BAB2A7E303300FC0D9A /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */; };
@@ -21,7 +22,7 @@
 		9E2F2DB62A5D2A3D009AF30C /* HydrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */; };
 		9E2F2DBA2A5D2A3F009AF30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */; };
 		9E2F2DBD2A5D2A3F009AF30C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2F2DBC2A5D2A3F009AF30C /* Preview Assets.xcassets */; };
-		9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC42A5D2A5F009AF30C /* Theme.swift */; };
+		9E2F2DC92A5D2A5F009AF30C /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC42A5D2A5F009AF30C /* ColorTheme.swift */; };
 		9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */; };
 		9E2F2DCC2A5D2A5F009AF30C /* HydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */; };
 		9E2F2DCE2A5D2B16009AF30C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */; };
@@ -44,7 +45,6 @@
 		5350335F2A666B2D00579966 /* HydrationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationProvider.swift; sourceTree = "<group>"; };
 		535033622A666B5F00579966 /* IntakesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntakesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		535033652A666D0200579966 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
-		53AD6CE32A6CEB4C00154E5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53CB7EC72A76F2FA00052C68 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
 		53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
 		53FE4BAC2A7E4D6B00FC0D9A /* ChangeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconView.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		9E2F2DB52A5D2A3D009AF30C /* HydrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationApp.swift; sourceTree = "<group>"; };
 		9E2F2DB92A5D2A3F009AF30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2F2DBC2A5D2A3F009AF30C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9E2F2DC42A5D2A5F009AF30C /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		9E2F2DC42A5D2A5F009AF30C /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		9E2F2DC62A5D2A5F009AF30C /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		9E2F2DC82A5D2A5F009AF30C /* HydrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrationView.swift; sourceTree = "<group>"; };
 		9E2F2DCD2A5D2B16009AF30C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -73,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B485A62A89556100436E76 /* ConfettiSwiftUI in Frameworks */,
+				53B485A32A89551000436E76 /* ConfettiSwiftUI in Frameworks */,
 				53FE4BA92A7E2CD900FC0D9A /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +94,6 @@
 		534953722A6AB4CF0031BC92 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				53AD6CE32A6CEB4C00154E5E /* User.swift */,
 				535033652A666D0200579966 /* Intake.swift */,
 				9E7A34F62A5F453D0045777C /* IntakeType.swift */,
 				535033612A666B5F00579966 /* HydrationDataModel.xcdatamodeld */,
@@ -181,7 +182,7 @@
 				9E2F2DD22A5D2C89009AF30C /* UserDefaultKeys.swift */,
 				9E0BFB532A609AD500AAAD93 /* DataHelper.swift */,
 				9E57DE7A2A648B5D005539F0 /* AppTheme.swift */,
-				9E2F2DC42A5D2A5F009AF30C /* Theme.swift */,
+				9E2F2DC42A5D2A5F009AF30C /* ColorTheme.swift */,
 				53FE4BAA2A7E303300FC0D9A /* View+Shimmer.swift */,
 			);
 			path = Helpers;
@@ -205,6 +206,8 @@
 			name = Hydration;
 			packageProductDependencies = (
 				53FE4BA82A7E2CD900FC0D9A /* Shimmer */,
+				53B485A22A89551000436E76 /* ConfettiSwiftUI */,
+				53B485A52A89556100436E76 /* ConfettiSwiftUI */,
 			);
 			productName = Hydration;
 			productReference = 9E2F2DB22A5D2A3D009AF30C /* Hydration.app */;
@@ -236,6 +239,8 @@
 			mainGroup = 9E2F2DA92A5D2A3D009AF30C;
 			packageReferences = (
 				53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				53B485A12A89551000436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				53B485A42A89556100436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = 9E2F2DB32A5D2A3D009AF30C /* Products */;
 			projectDirPath = "";
@@ -270,10 +275,9 @@
 				9E2F2DCA2A5D2A5F009AF30C /* InfoView.swift in Sources */,
 				535033632A666B5F00579966 /* HydrationDataModel.xcdatamodeld in Sources */,
 				9E92A9AB2A6C1FA600815990 /* HydrationViewModel.swift in Sources */,
-				9E2F2DC92A5D2A5F009AF30C /* Theme.swift in Sources */,
+				9E2F2DC92A5D2A5F009AF30C /* ColorTheme.swift in Sources */,
 				9EBA46462A5DD62500D8D44E /* CreateIntakeView.swift in Sources */,
 				53FE4BAD2A7E4D6B00FC0D9A /* ChangeIconView.swift in Sources */,
-				53AD6CE42A6CEB4C00154E5E /* User.swift in Sources */,
 				535033602A666B2D00579966 /* HydrationProvider.swift in Sources */,
 				5339A54C2A6842E30057E993 /* EmptyIntakesView.swift in Sources */,
 				534606922A70301100CA7009 /* HealthService.swift in Sources */,
@@ -507,6 +511,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		53B485A12A89551000436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		53B485A42A89556100436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
@@ -518,6 +538,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		53B485A22A89551000436E76 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53B485A12A89551000436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+		53B485A52A89556100436E76 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53B485A42A89556100436E76 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		53FE4BA82A7E2CD900FC0D9A /* Shimmer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 53FE4BA72A7E2CD900FC0D9A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;

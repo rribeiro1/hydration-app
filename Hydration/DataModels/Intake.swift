@@ -9,10 +9,6 @@
 import Foundation
 import CoreData
 
-
-import Foundation
-import CoreData
-
 final class Intake: NSManagedObject, Identifiable {
     @NSManaged var amount: Int
     @NSManaged var type: String

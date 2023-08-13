@@ -21,7 +21,7 @@ struct ProgressBar: View {
                         .bold()
                     
                     Image(systemName: "drop.fill")
-                        .foregroundColor(Theme.primary)
+                        .foregroundColor(ColorTheme.primary)
                         .font(.title)
                 }
                 Text("of your daily goal")
@@ -35,12 +35,12 @@ struct ProgressBar: View {
             Circle()
                 .stroke(lineWidth: 13)
                 .opacity(0.3)
-                .foregroundColor(Theme.primary)
+                .foregroundColor(ColorTheme.primary)
             
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(progress, 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Theme.primary)
+                .foregroundColor(ColorTheme.primary)
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.easeOut(duration: 0.25), value: progress)
         }

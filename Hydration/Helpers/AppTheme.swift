@@ -12,6 +12,17 @@ enum AppTheme: String, CaseIterable {
     case dark
     case light
 
+    var description: String {
+        switch self {
+        case .system:
+            return "System"
+        case .light:
+            return "Light"
+        case .dark:
+            return "Dark"
+        }
+    }
+
     var color: ColorScheme? {
         switch self {
             case .system: return nil
