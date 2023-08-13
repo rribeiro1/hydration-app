@@ -23,7 +23,7 @@ enum IntakeType : String, CaseIterable {
         case .juice:
             return .orange
         case .other:
-            return .gray
+            return .purple
         }
     }
 }
